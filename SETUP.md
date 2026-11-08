@@ -378,6 +378,7 @@ cette ligne en même temps, sinon plus rien ne se charge.
 Dans les textes des projets, écris toujours les chemins comme `/assets/projects/...` (avec le `/`
 au début) : le préfixe `/Portfolio` est ajouté tout seul au moment de la génération.
 
-La racine `https://stazixls.github.io/` ne sert plus le portfolio. Pour que les anciens liens vers
-le site continuent de marcher, il faudrait un repo `StazixLS.github.io` avec une page de
-redirection vers `/Portfolio/`.
+La racine `https://stazixls.github.io/` est tenue par un autre repo, `StazixLS.github.io`, qui ne
+contient que deux pages de redirection : la racine, `/portfolio/` (peu importe la casse) et les
+anciennes adresses sans préfixe (`/projects/...`) renvoient vers `/Portfolio/...`. Si tu renommes un
+jour ce repo-ci, mets à jour la constante `SITE` dans le `404.html` de `StazixLS.github.io`.
