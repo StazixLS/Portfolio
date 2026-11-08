@@ -47,7 +47,7 @@ Chaque projet a maintenant sa propre page (`/projects/nom-du-projet/`), génér�
 à partir des fichiers dans `_projects/`. C'est une fonctionnalité native de Jekyll (les "collections"),
 pas un plugin — donc ça continue de marcher avec le build Jekyll standard de GitHub Pages, sans
 rien changer à ta config ni passer par un hébergement externe. Le site est à
-`https://stazixls.github.io/portfolio/` (le repo s'appelle `portfolio`, voir "Mettre en ligne").
+`https://stazixls.github.io/Portfolio/` (le repo s'appelle `Portfolio`, voir "Mettre en ligne").
 
 ## Structure d'un projet (`_projects/*.md`)
 - `start_date` / `end_date`: toujours entre guillemets, au mois (`"2024-09"`) ou au jour
@@ -361,12 +361,14 @@ script JS affiche/masque le bon bloc. Pense à toujours remplir les deux version
 de chaque champ.
 
 ## Mettre en ligne avec GitHub Pages
-Le site est un "site de projet" : le repo s'appelle `portfolio`, donc il est servi à
-`https://stazixls.github.io/portfolio/`. C'est `baseurl: "/portfolio"` dans `_config.yml` qui le dit
-à Jekyll : tous les liens et chemins du site (CSS, polices, images, pages) en tiennent compte. Si tu
-renommes le repo un jour, change cette ligne en même temps, sinon plus rien ne se charge.
+Le site est un "site de projet" : le repo s'appelle `Portfolio`, donc il est servi à
+`https://stazixls.github.io/Portfolio/`. C'est `baseurl: "/Portfolio"` dans `_config.yml` qui le dit
+à Jekyll : tous les liens et chemins du site (CSS, polices, images, pages) en tiennent compte.
+Attention à la casse : les adresses GitHub Pages distinguent majuscules et minuscules, et
+`baseurl` doit être écrit exactement comme le nom du repo. Si tu renommes le repo un jour, change
+cette ligne en même temps, sinon plus rien ne se charge.
 
-1. Repo `stazixls/portfolio` (le nom doit être identique à `baseurl`, sans le `/`)
+1. Repo `StazixLS/Portfolio` (nom identique à `baseurl`, sans le `/`)
 2. Settings > Pages, source = branche `main`, dossier `/ (root)`
 3. GitHub build automatiquement le site Jekyll : pas besoin de lancer `jekyll build` toi-même,
    ni de pousser le dossier `_site`
@@ -374,7 +376,8 @@ renommes le repo un jour, change cette ligne en même temps, sinon plus rien ne 
    log de build y est visible)
 
 Dans les textes des projets, écris toujours les chemins comme `/assets/projects/...` (avec le `/`
-au début) : le préfixe `/portfolio` est ajouté tout seul au moment de la génération.
+au début) : le préfixe `/Portfolio` est ajouté tout seul au moment de la génération.
 
-La racine `https://stazixls.github.io/` est tenue par le repo `StazixLS.github.io`, qui ne contient
-qu'une page de redirection vers `/portfolio/` (les anciens liens vers le site continuent de marcher).
+La racine `https://stazixls.github.io/` ne sert plus le portfolio. Pour que les anciens liens vers
+le site continuent de marcher, il faudrait un repo `StazixLS.github.io` avec une page de
+redirection vers `/Portfolio/`.
