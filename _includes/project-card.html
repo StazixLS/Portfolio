@@ -1,0 +1,63 @@
+{%- assign p = include.project -%}
+{%- assign vt_slug = p.title_fr | slugify -%}
+<article class="card {% if p.locked %}card-soon{% else %}card-clickable{% endif %}" id="project-{{ vt_slug }}">
+  {% if p.image and p.image != "" %}
+  <div class="card-media" style="view-transition-name: card-media-{{ vt_slug }};">
+    <img src="{{ p.image | relative_url }}" alt="" loading="lazy">
+  </div>
+  {% elsif p.video and p.video != "" %}
+  <div class="card-media card-media-live" style="view-transition-name: card-media-{{ vt_slug }};">
+    <video src="{{ p.video | relative_url }}" controls preload="none"></video>
+  </div>
+  {% elsif p.video_embed and p.video_embed != "" %}
+  <div class="card-media card-media-live card-media-embed" style="view-transition-name: card-media-{{ vt_slug }};">
+    <iframe src="{{ p.video_embed }}" title="{{ p.title_fr }}" loading="lazy" allowfullscreen></iframe>
+  </div>
+  {% endif %}
+
+  <div class="card-body">
+    <h3 class="card-title" style="view-transition-name: card-title-{{ vt_slug }};">
+      <span lang="fr">{{ p.title_fr }}</span>
+      <span lang="en" hidden>{{ p.title_en | default: p.title_fr }}</span>
+    </h3>
+    <div class="meta-row card-meta">
+      {% if p.project_type and p.project_type != "" %}
+      {% assign ptype = site.data.project_types[p.project_type] %}
+      <span class="project-type project-type-{{ ptype.color }}">
+        <span lang="fr">{{ ptype.fr }}</span>
+        <span lang="en" hidden>{{ ptype.en }}</span>
+      </span>
+      {% endif %}
+      {% include project-dates.html project=p cls="card-dates" %}
+    </div>
+    <p class="card-subtitle">
+      <span lang="fr">{{ p.subtitle_fr }}</span>
+      <span lang="en" hidden>{{ p.subtitle_en | default: p.subtitle_fr }}</span>
+    </p>
+    <p class="card-summary">
+      <span lang="fr">{{ p.summary_fr }}</span>
+      <span lang="en" hidden>{{ p.summary_en | default: p.summary_fr }}</span>
+    </p>
+    {% include tags.html tags=p.tags %}
+    <div class="card-actions">
+      {% if p.locked %}
+      <span class="card-locked">
+        <span lang="fr">🔒 Bientôt disponible</span>
+        <span lang="en" hidden>🔒 Coming soon</span>
+      </span>
+      {% else %}
+      <a class="btn btn-fill btn-sm card-link-main" href="{{ p.url | relative_url }}">
+        <span lang="fr">Voir le projet</span>
+        <span lang="en" hidden>View project</span>
+        <span aria-hidden="true">→</span>
+      </a>
+      {% endif %}
+      {% if p.link and p.link != "" %}
+      <a class="btn btn-line btn-sm card-link-ext" href="{{ p.link }}" target="_blank" rel="noopener">
+        <span lang="fr">Voir en ligne ↗</span>
+        <span lang="en" hidden>View live ↗</span>
+      </a>
+      {% endif %}
+    </div>
+  </div>
+</article>

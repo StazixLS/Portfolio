@@ -1,0 +1,4 @@
+# Source unique des contacts : utilisée par les icônes du haut de page et
+# par la section Contact. Le pseudo GitHub vient de `author` dans _config.yml.
+email: "sev.forner@gmail.com"
+linkedin: "https://linkedin.com/in/sev-forner-13300a44a"

@@ -1,0 +1,19 @@
+# Parcours (section "Parcours.yml" de l'accueil), du plus récent au plus ancien.
+# Une entrée = un bloc de la frise. Les champs vides sont simplement ignorés.
+#
+#   title           nom de la formation / de l'expérience
+#   kind_fr/en      pastille ("Formation", "Stage", "Emploi"...)
+#   place           lieu
+#   period_fr/en    dates, ex. "2023 - Présent" / "2023 - Present" (optionnel)
+#   description_*   texte court
+#   projects        slugs des projets liés (nom du fichier dans _projects/, sans .md)
+
+- title: "Objectif 3D"
+  kind_fr: "Formation"
+  kind_en: "Training"
+  place: "Montferrier-sur-Lez"
+  period_fr: ""
+  period_en: ""
+  description_fr: "Mon école. C'est là que j'ai travaillé sur Nelli the Seer, un projet étudiant sorti sur Steam, et sur le projet client La Poste avec 24 étudiants."
+  description_en: "My school. It's where I worked on Nelli the Seer, a student project released on Steam, and on the La Poste client project with 24 students."
+  projects: ["nelli-the-seer", "la-poste"]

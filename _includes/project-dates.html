@@ -1,0 +1,11 @@
+{%- comment -%}
+  Dates d'un projet + durée facultative (duration_fr / duration_en, ex. "1 semaine").
+  Paramètres : project, cls (classe CSS du conteneur).
+{%- endcomment -%}
+{%- assign dp = include.project -%}
+{%- if dp.start_date and dp.start_date != "" -%}
+<span class="{{ include.cls }}">
+  <span lang="fr">{% include date-range.html start=dp.start_date end=dp.end_date lang="fr" %}{% if dp.duration_fr and dp.duration_fr != "" %} · {{ dp.duration_fr }}{% endif %}</span>
+  <span lang="en" hidden>{% include date-range.html start=dp.start_date end=dp.end_date lang="en" %}{% if dp.duration_fr and dp.duration_fr != "" %} · {{ dp.duration_en | default: dp.duration_fr }}{% endif %}</span>
+</span>
+{%- endif -%}

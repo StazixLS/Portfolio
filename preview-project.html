@@ -3,115 +3,409 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aperçu — Page projet</title>
+  
+  
+  <title>Projet La Poste | Sev FORNER</title>
+  <meta name="description" content="Gameplay / AI / Tools Programmer">
+  
+  
+  
+  
+  
+  
+  <link rel="icon" id="js-favicon" href="assets/projects/La Poste/Favicon.png">
+  
+  <script>
+  (function () {
+    var link = document.getElementById('js-favicon');
+    var shape = "rounded";
+    var img = new Image();
+    img.crossOrigin = 'anonymous';
+    img.onload = function () {
+      try {
+        var size = 64;
+        var canvas = document.createElement('canvas');
+        canvas.width = size;
+        canvas.height = size;
+        var ctx = canvas.getContext('2d');
+        ctx.save();
+        ctx.beginPath();
+        if (shape === 'circle') {
+          ctx.arc(size / 2, size / 2, size / 2, 0, Math.PI * 2);
+        } else {
+          var r = size * 0.22;
+          ctx.moveTo(r, 0);
+          ctx.arcTo(size, 0, size, size, r);
+          ctx.arcTo(size, size, 0, size, r);
+          ctx.arcTo(0, size, 0, 0, r);
+          ctx.arcTo(0, 0, size, 0, r);
+        }
+        ctx.closePath();
+        ctx.clip();
+        var sw = img.naturalWidth || size;
+        var sh = img.naturalHeight || size;
+        var scale = Math.max(size / sw, size / sh);
+        var dw = sw * scale, dh = sh * scale;
+        ctx.drawImage(img, (size - dw) / 2, (size - dh) / 2, dw, dh);
+        ctx.restore();
+        link.href = canvas.toDataURL('image/png');
+      } catch (e) {
+        /* Tainted canvas (no CORS) or other failure: leave the plain
+           icon already set above. Never worse than before. */
+      }
+    };
+    img.src = "assets/projects/La Poste/Favicon.png";
+  })();
+  </script>
+  
+  
   <link rel="stylesheet" href="assets/css/fonts.css">
   <link rel="stylesheet" href="assets/css/style.css">
-  <style>
-    /* Preview-only: stand-ins for real images/videos */
-    .media-placeholder {
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, rgba(235,111,146,0.18), rgba(156,207,216,0.12));
-      color: var(--muted);
-      font-family: var(--font-mono);
-      font-size: 12px;
-    }
-    .media-placeholder-float {
-      float: right;
-      width: 45%;
-      aspect-ratio: 4 / 3;
-      margin: 6px 0 16px 24px;
-      border-radius: 8px;
-      border: 1px solid var(--border);
-    }
-    .gallery-placeholder {
-      aspect-ratio: 4 / 3;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, rgba(246,193,119,0.18), rgba(156,207,216,0.12));
-      border: 1px solid var(--border);
-      color: var(--muted);
-      font-family: var(--font-mono);
-      font-size: 11px;
-    }
-  </style>
 </head>
 <body>
   <div class="editor">
-
     <div class="titlebar">
-      <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-      <span class="titlebar-path">Portfolio.sln — alex-martin — Visual Studio</span>
-      <div class="lang-switch" role="group" aria-label="Langue / Language">
-        <button type="button" class="lang-btn" data-lang-btn="fr" aria-pressed="true">FR</button>
-        <button type="button" class="lang-btn" data-lang-btn="en" aria-pressed="false">EN</button>
-      </div>
-    </div>
+  <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+  <span class="titlebar-path">Portfolio.sln - StazixLS - Visual Studio</span>
+  <div class="lang-switch" role="group" aria-label="Langue / Language">
+    <button type="button" class="lang-btn" data-lang-btn="fr" aria-pressed="true">FR</button>
+    <button type="button" class="lang-btn" data-lang-btn="en" aria-pressed="false">EN</button>
+  </div>
+</div>
 
-    <nav class="tabs" aria-label="Navigation">
-      <a href="preview.html#profil" class="tab" data-tab="profil"><span class="tab-dot"></span>About.cs</a>
-      <a href="preview.html#projets" class="tab" data-tab="projets"><span class="tab-dot"></span>Projects.json</a>
-      <a href="preview.html#contact" class="tab" data-tab="contact"><span class="tab-dot"></span>Contact.xaml</a>
-    </nav>
+    
+<nav class="tabs" aria-label="Navigation">
+  <a href="preview.html#about" class="tab" data-tab="about"><span class="tab-dot"></span>About.cs</a>
+  <a href="preview.html#projets" class="tab" data-tab="projets"><span class="tab-dot"></span>Projects.json</a>
+  <a href="preview.html#profile" class="tab" data-tab="profile"><span class="tab-dot"></span>Profile.md</a>
+  <a href="preview.html#parcours" class="tab" data-tab="parcours"><span class="tab-dot"></span>Parcours.yml</a>
+  <a href="preview.html#contact" class="tab" data-tab="contact"><span class="tab-dot"></span>Contact.xaml</a>
+  <span class="tab tab-file active" aria-current="page">
+    <span class="tab-dot"></span>
+    <span class="tab-name"><span lang="fr">Projet La Poste.md</span><span lang="en" hidden>La Poste Project.md</span></span>
+    <a class="tab-close" href="preview.html#project-projet-la-poste" aria-label="Fermer et revenir aux projets / Close and go back to projects" title="Fermer / Close">×</a>
+  </span>
+</nav>
 
     <main class="editor-content">
-      <article class="project-page">
-        <a href="preview.html#projets" class="back-link">
-          <span lang="fr">← retour aux projets</span>
-          <span lang="en" hidden>← back to projects</span>
-        </a>
+      
+<article class="project-page">
+  <a href="preview.html#project-projet-la-poste" class="back-btn">
+    <span aria-hidden="true">←</span>
+    <span lang="fr">Tous les projets</span>
+    <span lang="en" hidden>All projects</span>
+  </a>
 
-        <div class="project-hero-media">
-          <div class="media-placeholder">image ou vidéo principale du projet</div>
-        </div>
+  
+  
+  <div class="project-hero-media" style="view-transition-name: card-media-projet-la-poste;">
+    <img src="assets/projects/La Poste/Cover.svg" alt="Projet La Poste">
+  </div>
+  
+  
 
-        <p class="pane-label">// project.md</p>
-        <h1 class="project-title">
-          <span lang="fr">Projet La Poste</span>
-          <span lang="en" hidden>La Poste Project</span>
-        </h1>
-        <p class="project-subtitle">
-          <span lang="fr">Serious game VR — formation &amp; sensibilisation</span>
-          <span lang="en" hidden>VR serious game — training &amp; awareness</span>
-        </p>
+  <header class="project-header">
+    <h1 class="project-title" style="view-transition-name: card-title-projet-la-poste;">
+      <span lang="fr">Projet La Poste</span>
+      <span lang="en" hidden>La Poste Project</span>
+    </h1>
+    <div class="meta-row project-meta">
+      
+      
+      <span class="project-type project-type-rose">
+        <span lang="fr">Projet professionnel</span>
+        <span lang="en" hidden>Professional project</span>
+      </span>
+      
+      <span class="project-dates">
+  <span lang="fr">Janvier 2026 - Mars 2026</span>
+  <span lang="en" hidden>January 2026 - March 2026</span>
+</span>
+    </div>
+    <p class="project-subtitle">
+      <span lang="fr">Serious game VR : formation & sensibilisation</span>
+      <span lang="en" hidden>VR serious game: training & awareness</span>
+    </p>
 
-        <div class="tags">
-          <span class="tag">Unity</span>
-          <span class="tag">C#</span>
-          <span class="tag">VR</span>
-        </div>
+    <div class="tags"><span class="tag tag-engine">Unity</span><span class="tag tag-lang">C#</span><span class="tag tag-domain">VR</span></div>
 
-        <div class="project-body">
-          <div lang="fr">
-            <p>Ce projet est un serious game en réalité virtuelle développé pour un module de formation professionnelle. J'étais en charge des systèmes d'interaction main/objet et de l'intégration du gameplay dans le moteur Unity.</p>
-            <div class="media-placeholder media-placeholder-float">capture d'écran flottante à droite</div>
-            <p>Le texte s'enroule naturellement autour de l'image, comme dans un article — pratique pour illustrer un point précis sans casser le rythme de lecture. Tu peux placer autant d'images ou de vidéos que nécessaire, à n'importe quel endroit du texte, en flottant à gauche ou à droite.</p>
-            <p>Un des principaux défis techniques a été la synchronisation entre les animations d'IK des mains et les objets interactifs de la scène, pour que la prise en main reste crédible même avec des contrôleurs VR d'entrée de gamme.</p>
-          </div>
-        </div>
+    
+    <div class="project-actions">
+      <a class="btn btn-line" href="https://www.linkedin.com/posts/santaezsaezcuritaeztravail-laposte-ugcPost-7447257936340455425-iHXG/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAGP3VwcBC5j46txAf7VX7F60ZpaOPMh-gRc" target="_blank" rel="noopener">
+        <span lang="fr">Voir le projet en ligne ↗</span>
+        <span lang="en" hidden>View live project ↗</span>
+      </a>
+    </div>
+    
+  </header>
 
-        <p class="pane-label">// gallery</p>
-        <div class="project-gallery">
-          <div class="gallery-placeholder">image 1</div>
-          <div class="gallery-placeholder">image 2</div>
-          <div class="gallery-placeholder">vidéo</div>
-        </div>
+  
+  <div class="project-body">
+    <div lang="fr"><p>Deux modules de formation en réalité virtuelle développés pour La Poste, un vrai projet client mené via l'école (Objectif 3D) avec une équipe de 24 étudiants sur plus de cinq mois au total. Le projet a été présenté publiquement le 27 mars 2026 et couvert par la presse locale (Midi Libre).
+<img alt="Article Midi Libre sur le projet" class="float-right" src="assets/projects/La%20Poste/Presse%20Midi%20Libre.jpg" /></p>
+<h2>Mon rôle</h2>
+<p>J'ai travaillé sur les deux modules. En janvier, plutôt en solo, sur le Module 2 (mini-jeu du cadenas, <a href="#gallery-2">aperçu ici</a>) : architecture des Game/MiniGame Managers, physique et interactions du cadenas, particules, son, un système de quiz avec indices, et quelques méthodes d'extension C# réutilisables (TryGetComponent, GetComponentsInChildren...).
+À partir de février, avec un camarade, sur toutes les étapes d'interaction du Module 1 (inspection du transpalette, <a href="#gallery-4">parcours ici</a>). J'ai aussi développé un système de mise en surbrillance des objets interactifs ("Halo"). <a href="#gallery-10">Prototype visible ici</a>.</p>
+<div class="media-compare">
+  <figure>
+    <img src="assets/projects/La Poste/Module 1 Greybox.jpg" alt="Module 1 en greybox, sans texture ni décor">
+    <figcaption>Greybox</figcaption>
+  </figure>
+  <figure>
+    <img src="assets/projects/La Poste/Module 1 Texture.jpg" alt="Module 1 avec décor et textures finales">
+    <figcaption>Version texturée</figcaption>
+  </figure>
+</div>
+<p>Le même parcours une fois l'environnement texturé, en mouvement : <a href="#gallery-9">aperçu ici</a>.</p>
+<h2>Défis techniques</h2>
+<p>Le plus gros morceau a été ce système de Halo. Le composant "Halo" natif d'Unity ne convenait pas du tout, et une autre approche testée ne fonctionnait pas correctement une fois en VR. La solution retenue : un matériau dédié, permutable à la volée. Quand le halo s'active sur un objet, son matériau est remplacé par ce matériau spécial. Le système va jusqu'à un outil de config personnalisé dans l'inspecteur Unity, avec prévisualisation directement hors mode Play (<a href="#gallery-11">l'outil en action</a>) et des presets sauvegardables sur le disque (<a href="#gallery-12">aperçu</a>).
+Contrainte de prod à noter : l'équipe disposait de peu de casques VR, ce qui a rendu le test de nos mécaniques plus long que prévu. Le compteur de FPS resté affiché en permanence pendant le développement (<a href="#gallery-3">aperçu</a>) servait à repérer les chutes de performance : en VR, un framerate trop bas peut vite donner la nausée en jeu, donc c'était un point de vigilance constant.</p>
+<h2>Ce que j'en ai retenu</h2>
+<p>Les bases du développement VR, notamment les composants de grab et d'interaction. Itérer sur plusieurs approches avant de trouver la bonne pour le Halo, une solution finalement plus simple qu'attendu. Et une vraie expérience de travail en binôme serré sur un système partagé.</p></div>
+    <div lang="en" hidden><p>Two VR training modules developed for La Poste, a real client project run through the school (Objectif 3D) with a team of 24 students over five-plus months in total. The project was publicly presented on March 27, 2026 and covered by local press (Midi Libre).
+<img alt="Midi Libre newspaper article about the project" class="float-right" src="assets/projects/La%20Poste/Presse%20Midi%20Libre.jpg" /></p>
+<h2>My role</h2>
+<p>I worked on both modules. In January, mostly solo, on Module 2 (the padlock mini-game, <a href="#gallery-2">preview here</a>): Game/MiniGame Manager architecture, padlock physics and interactions, particles, sound, a quiz system with hints, and a few reusable C# extension methods (TryGetComponent, GetComponentsInChildren...).
+From February onward, alongside a teammate, on all the interaction steps of Module 1 (pallet jack inspection, <a href="#gallery-4">walkthrough here</a>). I also built a highlight system for interactive objects ("Halo"). <a href="#gallery-10">Prototype visible here</a>.</p>
+<div class="media-compare">
+  <figure>
+    <img src="assets/projects/La Poste/Module 1 Greybox.jpg" alt="Module 1 in greybox, no textures or set dressing">
+    <figcaption>Greybox</figcaption>
+  </figure>
+  <figure>
+    <img src="assets/projects/La Poste/Module 1 Texture.jpg" alt="Module 1 with final set dressing and textures">
+    <figcaption>Textured version</figcaption>
+  </figure>
+</div>
+<p>The same walkthrough once the environment was textured, in motion: <a href="#gallery-9">preview here</a>.</p>
+<h2>Technical challenges</h2>
+<p>The biggest piece was this Halo system. Unity's native Halo component didn't work at all, and another approach I tried didn't behave correctly once in VR. The solution: a dedicated material, swapped on the fly. When the halo activates on an object, its material gets replaced with this special one. The system even includes a custom config tool in the Unity inspector, with a preview outside Play mode (<a href="#gallery-11">the tool in action</a>) and presets that can be saved to disk (<a href="#gallery-12">preview</a>).
+Worth noting as a production constraint: the team had very few VR headsets, which made testing our mechanics take longer than expected. The FPS counter left on screen throughout development (<a href="#gallery-3">preview</a>) was there to catch performance drops early: in VR, a framerate that's too low can quickly cause motion sickness, so it was something we kept a constant eye on.</p>
+<h2>What I took away from it</h2>
+<p>The basics of VR development, grab and interaction components in particular. Iterating through several approaches before landing on the right one for the Halo, a solution that ended up simpler than expected. And real experience working in close pair programming on a shared system.</p></div>
+  </div>
 
-        <a href="preview.html#projets" class="back-link back-link-bottom">
-          <span lang="fr">← retour aux projets</span>
-          <span lang="en" hidden>← back to projects</span>
-        </a>
-      </article>
+  
+  <section class="project-media" aria-labelledby="media-heading">
+    <h2 class="media-heading" id="media-heading">
+      <span lang="fr">Médias</span>
+      <span lang="en" hidden>Media</span>
+      <span class="media-count">12</span>
+    </h2>
+    <div class="project-gallery">
+      
+      
+      
+      
+      <a id="gallery-1" class="gallery-item" href="assets/projects/La Poste/Padlock Proto.png" data-type="image" data-caption="Padlock Proto">
+        <span class="gallery-thumb"><img src="assets/projects/La Poste/Padlock Proto.png" alt="" loading="lazy"></span>
+        <span class="gallery-caption">Padlock Proto</span>
+      </a>
+      
+      
+      
+      
+      
+      
+      
+      
+      <a id="gallery-2" class="gallery-item" href="assets/projects/La Poste/Proto Padlock Without Dialogue.mp4" data-type="video" data-caption="Proto Padlock Without Dialogue">
+        <span class="gallery-thumb">
+          
+          <video src="assets/projects/La Poste/Proto Padlock Without Dialogue.mp4" poster="assets/projects/La Poste/Proto Padlock Without Dialogue.poster.jpg" muted loop playsinline preload="none" tabindex="-1"></video>
+          
+          <span class="play-badge" aria-hidden="true"></span>
+        </span>
+        <span class="gallery-caption">Proto Padlock Without Dialogue</span>
+      </a>
+      
+      
+      
+      
+      
+      
+      
+      
+      <a id="gallery-3" class="gallery-item" href="assets/projects/La Poste/Proto Padlock With Dialog.mp4" data-type="video" data-caption="Proto Padlock With Dialog">
+        <span class="gallery-thumb">
+          
+          <video src="assets/projects/La Poste/Proto Padlock With Dialog.mp4" poster="assets/projects/La Poste/Proto Padlock With Dialog.poster.jpg" muted loop playsinline preload="none" tabindex="-1"></video>
+          
+          <span class="play-badge" aria-hidden="true"></span>
+        </span>
+        <span class="gallery-caption">Proto Padlock With Dialog</span>
+      </a>
+      
+      
+      
+      
+      
+      
+      
+      
+      <a id="gallery-4" class="gallery-item" href="assets/projects/La Poste/Module 1 Inspection Part1.mp4" data-type="video" data-caption="Module 1 Inspection Part1">
+        <span class="gallery-thumb">
+          
+          <video src="assets/projects/La Poste/Module 1 Inspection Part1.mp4" poster="assets/projects/La Poste/Module 1 Inspection Part1.poster.jpg" muted loop playsinline preload="none" tabindex="-1"></video>
+          
+          <span class="play-badge" aria-hidden="true"></span>
+        </span>
+        <span class="gallery-caption">Module 1 Inspection Part1</span>
+      </a>
+      
+      
+      
+      
+      
+      
+      
+      
+      <a id="gallery-5" class="gallery-item" href="assets/projects/La Poste/Module 1 Inspection Part2.mp4" data-type="video" data-caption="Module 1 Inspection Part2">
+        <span class="gallery-thumb">
+          
+          <video src="assets/projects/La Poste/Module 1 Inspection Part2.mp4" poster="assets/projects/La Poste/Module 1 Inspection Part2.poster.jpg" muted loop playsinline preload="none" tabindex="-1"></video>
+          
+          <span class="play-badge" aria-hidden="true"></span>
+        </span>
+        <span class="gallery-caption">Module 1 Inspection Part2</span>
+      </a>
+      
+      
+      
+      
+      
+      
+      
+      
+      <a id="gallery-6" class="gallery-item" href="assets/projects/La Poste/Module 1 Inspection Part3.mp4" data-type="video" data-caption="Module 1 Inspection Part3">
+        <span class="gallery-thumb">
+          
+          <video src="assets/projects/La Poste/Module 1 Inspection Part3.mp4" poster="assets/projects/La Poste/Module 1 Inspection Part3.poster.jpg" muted loop playsinline preload="none" tabindex="-1"></video>
+          
+          <span class="play-badge" aria-hidden="true"></span>
+        </span>
+        <span class="gallery-caption">Module 1 Inspection Part3</span>
+      </a>
+      
+      
+      
+      
+      
+      
+      
+      
+      <a id="gallery-7" class="gallery-item" href="assets/projects/La Poste/Module 1 Inspection Part4.mp4" data-type="video" data-caption="Module 1 Inspection Part4">
+        <span class="gallery-thumb">
+          
+          <video src="assets/projects/La Poste/Module 1 Inspection Part4.mp4" poster="assets/projects/La Poste/Module 1 Inspection Part4.poster.jpg" muted loop playsinline preload="none" tabindex="-1"></video>
+          
+          <span class="play-badge" aria-hidden="true"></span>
+        </span>
+        <span class="gallery-caption">Module 1 Inspection Part4</span>
+      </a>
+      
+      
+      
+      
+      
+      
+      
+      
+      <a id="gallery-8" class="gallery-item" href="assets/projects/La Poste/Module 1 Inspection Part5.mp4" data-type="video" data-caption="Module 1 Inspection Part5">
+        <span class="gallery-thumb">
+          
+          <video src="assets/projects/La Poste/Module 1 Inspection Part5.mp4" poster="assets/projects/La Poste/Module 1 Inspection Part5.poster.jpg" muted loop playsinline preload="none" tabindex="-1"></video>
+          
+          <span class="play-badge" aria-hidden="true"></span>
+        </span>
+        <span class="gallery-caption">Module 1 Inspection Part5</span>
+      </a>
+      
+      
+      
+      
+      
+      
+      
+      
+      <a id="gallery-9" class="gallery-item" href="assets/projects/La Poste/La Poste Module 1 With Texture.mp4" data-type="video" data-caption="La Poste Module 1 With Texture">
+        <span class="gallery-thumb">
+          
+          <video src="assets/projects/La Poste/La Poste Module 1 With Texture.mp4" poster="assets/projects/La Poste/La Poste Module 1 With Texture.poster.jpg" muted loop playsinline preload="none" tabindex="-1"></video>
+          
+          <span class="play-badge" aria-hidden="true"></span>
+        </span>
+        <span class="gallery-caption">La Poste Module 1 With Texture</span>
+      </a>
+      
+      
+      
+      
+      
+      
+      
+      
+      <a id="gallery-10" class="gallery-item" href="assets/projects/La Poste/Outil Halo Debug Mode (Hors Play).mp4" data-type="video" data-caption="Outil Halo Debug Mode (Hors Play)">
+        <span class="gallery-thumb">
+          
+          <video src="assets/projects/La Poste/Outil Halo Debug Mode (Hors Play).mp4" poster="assets/projects/La Poste/Outil Halo Debug Mode (Hors Play).poster.jpg" muted loop playsinline preload="none" tabindex="-1"></video>
+          
+          <span class="play-badge" aria-hidden="true"></span>
+        </span>
+        <span class="gallery-caption">Outil Halo Debug Mode (Hors Play)</span>
+      </a>
+      
+      
+      
+      
+      
+      
+      
+      
+      <a id="gallery-11" class="gallery-item" href="assets/projects/La Poste/Outil Halo Debug Preset (Hors Play).mp4" data-type="video" data-caption="Outil Halo Debug Preset (Hors Play)">
+        <span class="gallery-thumb">
+          
+          <video src="assets/projects/La Poste/Outil Halo Debug Preset (Hors Play).mp4" poster="assets/projects/La Poste/Outil Halo Debug Preset (Hors Play).poster.jpg" muted loop playsinline preload="none" tabindex="-1"></video>
+          
+          <span class="play-badge" aria-hidden="true"></span>
+        </span>
+        <span class="gallery-caption">Outil Halo Debug Preset (Hors Play)</span>
+      </a>
+      
+      
+      
+      
+      
+      
+      
+      
+      <a id="gallery-12" class="gallery-item" href="assets/projects/La Poste/Outil Halo Save Preset (Hors Play).mp4" data-type="video" data-caption="Outil Halo Save Preset (Hors Play)">
+        <span class="gallery-thumb">
+          
+          <video src="assets/projects/La Poste/Outil Halo Save Preset (Hors Play).mp4" poster="assets/projects/La Poste/Outil Halo Save Preset (Hors Play).poster.jpg" muted loop playsinline preload="none" tabindex="-1"></video>
+          
+          <span class="play-badge" aria-hidden="true"></span>
+        </span>
+        <span class="gallery-caption">Outil Halo Save Preset (Hors Play)</span>
+      </a>
+      
+      
+    </div>
+  </section>
+  
+  
+
+  <a href="preview.html#project-projet-la-poste" class="back-btn back-btn-bottom">
+    <span aria-hidden="true">←</span>
+    <span lang="fr">Tous les projets</span>
+    <span lang="en" hidden>All projects</span>
+  </a>
+</article>
+
     </main>
-
     <footer class="footer">
-      <span class="comment">// © 2026 alex-martin — généré avec Jekyll</span>
-    </footer>
+  <span class="comment">// © 2026 StazixLS · généré avec Jekyll</span>
+</footer>
 
   </div>
   <script src="assets/js/main.js"></script>

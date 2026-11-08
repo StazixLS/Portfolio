@@ -1,9 +1,18 @@
 # Setup
 
 ## Voir le rendu tout de suite (sans installer Jekyll)
-Ouvre `preview.html` dans ton navigateur pour la page d'accueil, et `preview-project.html`
-pour un exemple de page projet (avec une image flottante dans le texte). Ce sont des versions
-statiques avec du faux contenu, juste pour voir le style — pas le vrai site.
+Il suffit de Python :
+
+```bash
+pip install python-liquid markdown pyyaml pygments
+python3 tools/build_preview.py            # écrit le site dans _site_preview/
+python3 -m http.server -d _site_preview 8765   # puis http://localhost:8765
+```
+`tools/build_preview.py` rejoue les templates du vrai site (accueil, pages projet, 404) sans
+Ruby. Ce n'est pas le vrai Jekyll : GitHub Pages reste ce qui build le site en ligne, ce script
+sert juste à vérifier le rendu avant de pousser. Option `--baseurl=/portfolio` pour tester sous
+un sous-dossier, et `--snapshots` pour rafraîchir `preview.html` / `preview-project.html`
+(copies qui s'ouvrent d'un double-clic).
 
 ## Faire tourner le vrai site en local
 Il faut Ruby + Bundler installés sur ta machine.
@@ -41,17 +50,29 @@ rien changer à ta config ni passer par un hébergement externe. Le site reste �
 `https://ton-pseudo.github.io`.
 
 ## Structure d'un projet (`_projects/*.md`)
-- `start_date` / `end_date`: format `"YYYY-MM"` (ex: `"2024-09"`). Les projets sont triés
-  automatiquement du plus récent au plus ancien sur `start_date` — plus besoin de gérer un ordre
-  à la main. Laisse `end_date: ""` si le projet est toujours en cours, ça affichera "présent"
-- `project_type`: un des 4 types définis dans `_data/project_types.yml` — `pro`, `student`,
-  `personal`, ou `gamejam`. Affiché en badge coloré sur la carte et la page dédiée. Pour ajouter
-  un 5ème type, il suffit d'ajouter une entrée dans ce fichier data, pas besoin de toucher au code
+- `start_date` / `end_date`: toujours entre guillemets, au mois (`"2024-09"`) ou au jour
+  (`"2024-09-02"`). Les projets sont triés automatiquement du plus récent au plus ancien sur
+  `start_date`. Laisse `end_date: ""` si le projet est toujours en cours, ça affichera "Présent".
+  Ce que ça donne :
+  - `"2026-01"` → `"2026-03"` : Janvier 2026 - Mars 2026
+  - `"2026-03"` → `"2026-03"` : Mars 2026 (même mois, affiché une seule fois)
+  - `"2026-03-02"` → `"2026-03-08"` : 2 - 8 mars 2026 (utile pour une jam d'une semaine)
+  - `"2026-03-02"` → `"2026-03-02"` : 2 mars 2026
+- `duration_fr` / `duration_en` (facultatif): une durée écrite à la main, affichée après les dates.
+  Ex: `duration_fr: "1 semaine"` / `duration_en: "1 week"` → "2 - 8 mars 2026 · 1 semaine"
+- `project_type`: un des types définis dans `_data/project_types.yml` : `pro` (rose), `student`
+  (bleu-vert), `personal` (or), `gamejam` (violet) et `team` (pêche, "Projet d'équipe", pour un
+  projet fait à plusieurs en dehors d'un cadre client ou scolaire). Affiché en pastille colorée
+  à côté des dates. Pour un nouveau type, il suffit d'ajouter une entrée dans ce fichier
+  (`color` = `rose`, `foam`, `gold`, `iris` ou `peach`), sans toucher au code. "En cours" n'a pas
+  besoin de type : une `end_date` vide affiche déjà "Présent"
 - `title_fr` / `title_en`, `subtitle_fr` / `subtitle_en`
 - `summary_fr` / `summary_en`: UNE phrase courte, affichée sur la carte de la page d'accueil
 - `description_fr` / `description_en`: le texte complet, affiché sur la page dédiée du projet
   (`/projects/nom-du-projet/`) — aussi long que tu veux, plusieurs paragraphes
-- `tags`: liste de technos
+- `tags`: liste de technos. Leur couleur vient de `_data/tags.yml` (moteur en bleu-vert, langage
+  en violet, domaine en or). Un tag absent de ce fichier s'affiche en gris : ajoute-le à la liste
+  pour lui donner une catégorie
 - `link`: lien externe optionnel (Steam, page du studio, itch.io...), affiché en plus du lien interne
 - `image` / `video` / `video_embed`: média principal, affiché en haut de la carte ET en haut de
   la page dédiée. Ne remplis qu'un seul des trois
@@ -59,10 +80,10 @@ rien changer à ta config ni passer par un hébergement externe. Le site reste �
   une image dans `assets/`, ex: `/assets/projects/mon-jeu/icon.png`). Laisse `favicon: ""` (ou un
   chemin qui n'existe pas) pour utiliser ta photo de profil GitHub à la place — voir "Photo de
   profil & icône de l'onglet" plus bas
-- `gallery`: liste d'images/vidéos supplémentaires, affichées en bas de la page dédiée du projet
-  (pas sur la carte d'accueil — trop petit pour bien les montrer). Les vidéos se lancent toutes
-  seules (muettes, en boucle) uniquement quand elles sont à l'écran, et se mettent en pause
-  quand tu défiles plus loin ; une vidéo que tu mets en pause toi-même reste en pause
+- `gallery`: liste d'images/vidéos supplémentaires, affichées sous le texte de la page dédiée du
+  projet (pas sur la carte d'accueil). Ce sont des vignettes : un clic les ouvre en grand dans la
+  visionneuse (voir plus bas). Le nom du fichier sert de légende (sans l'extension), donc
+  nomme-les proprement, ex: `Gameplay Glide Without Bonus Gem.mp4`
 - `locked`: mets `true` pour un projet encore en cours que tu ne veux pas détailler publiquement.
   La carte reste visible (titre, tags, dates, résumé) mais le lien "en savoir plus" est remplacé
   par "🔒 Bientôt disponible". La page dédiée existe toujours si quelqu'un devine/tape l'URL, mais
@@ -252,7 +273,7 @@ soulignement ; si tu en as vraiment besoin, écris directement `<u>texte</u>` da
 En plus de placer des médias en plein milieu du texte, tu peux garder une galerie d'images/vidéos
 en bas de la page (`gallery`) et faire pointer un mot ou une phrase du texte vers l'une d'elles.
 Chaque élément de la galerie a un identifiant `#gallery-1`, `#gallery-2`, etc. (dans l'ordre de la
-liste), et un petit numéro `#1`, `#2`... s'affiche dans le coin pour que tu voies lequel est lequel.
+liste).
 
 ```markdown
 description_fr: >
@@ -260,10 +281,9 @@ description_fr: >
   ne se verrouille pas correctement dans certains angles de caméra.
 ```
 
-Ça donne un vrai lien (rose, souligné) dans le texte — au clic, la page défile jusqu'à l'image
-n°2 de la galerie, qui reçoit un contour rose pour qu'on la repère. Les deux approches (image en
-plein milieu du texte, et lien texte → galerie) marchent en même temps, tu choisis au cas par cas
-ce qui convient le mieux à chaque média.
+Ça donne un vrai lien (rose, souligné) dans le texte : au clic, le média n°2 de la galerie s'ouvre
+directement dans la visionneuse. Les deux approches (image en plein milieu du texte, et lien
+texte → galerie) marchent en même temps, tu choisis au cas par cas ce qui convient le mieux.
 
 ## Animation de "compilation" (Contact et 404)
 Les panneaux "Output" de la section Contact et de la page 404 font semblant de compiler : les lignes
@@ -275,6 +295,63 @@ liens (Mail, GitHub, LinkedIn) sont déjà dans la page et un clic sur le pannea
 Pour l'activer sur un autre panneau : ajoute `data-compile` sur son `<div class="output-panel">` et
 mets `class="status ok"` (ou `status fail`) sur le mot de fin de ligne (`OK`, `FAILED`...). Les
 durées se règlent en haut du bloc dans `assets/js/main.js` (`LINE_MS` et `SPIN_MS`).
+
+## Blocs de code dans le texte
+Dans `description_fr` / `description_en`, un bloc de code entouré de trois accents graves, avec le
+nom du langage juste après les premiers, est coloré automatiquement (couleurs Rosé Pine), avec le
+nom du langage et un bouton "Copier" en haut à droite :
+
+````markdown
+description_fr: |
+  Pour planer, je coupe la gravité tant que le bouton est maintenu :
+
+  ```cpp
+  void ANelliCharacter::StartGlide()
+  {
+      GetCharacterMovement()->GravityScale = 0.25f;
+  }
+  ```
+````
+
+Langages utiles : `cpp`, `csharp`, `python`, `json`, `yaml`, `hlsl`, `glsl`, `bash`, `diff`.
+Sans nom de langage, le bloc s'affiche sans couleur. Pour du code au milieu d'une phrase, entoure-le
+d'un seul accent grave : `UPROPERTY(EditAnywhere)`. Avec `description: |` (barre verticale) les
+retours à la ligne et l'indentation du code sont conservés. Écris le bloc dans les deux langues si
+tu veux qu'il apparaisse en FR et en EN.
+
+## Agrandir les images et vidéos (visionneuse)
+Sur une page projet, un clic sur le média du haut, une vignette de la galerie ou une image du texte
+l'ouvre en grand. Flèches du clavier ou boutons pour passer au suivant, `Échap` ou un clic à côté
+pour fermer, balayage du doigt sur mobile. Rien à configurer : ça marche pour toutes les images et
+vidéos de la page (sauf les SVG et les vidéos YouTube intégrées).
+
+## Posters des vidéos de la galerie
+Les vignettes vidéo n'envoient pas la vidéo entière : elles affichent une petite image (poster),
+et la vidéo ne se charge qu'au survol (souris) ou à l'ouverture. Le poster d'une vidéo
+`Nom.mp4` est simplement `Nom.poster.jpg` dans le même dossier (640 px de large environ). Sans
+poster, la vignette charge juste la première image de la vidéo. Pour en générer un :
+
+```bash
+ffmpeg -ss 1 -i "Nom.mp4" -frames:v 1 -vf scale=640:-2 -q:v 4 "Nom.poster.jpg"
+```
+
+## Parcours
+La section "Parcours" de l'accueil vient de `_data/parcours.yml` : une entrée par étape (formation,
+stage, emploi), de la plus récente à la plus ancienne. Champs : `title`, `kind_fr`/`kind_en`
+(pastille), `place`, `period_fr`/`period_en` (facultatif, ex: "2023 - Présent"),
+`description_fr`/`description_en` et `projects` (liste de noms de fichiers de `_projects/` sans
+`.md`, affichés comme liens). Un champ vide est simplement ignoré.
+
+## Contact
+Mail, GitHub et LinkedIn sont dans `_data/contact.yml`. C'est la seule source : les icônes du haut
+de l'accueil et le panneau Contact s'y réfèrent tous les deux. Les logos sont dans
+`_includes/icon.html`.
+
+## Navigation et couleur des liens
+Sur une page projet, l'onglet du projet est affiché à droite des onglets du site avec une croix
+qui ramène à la carte du projet dans la liste. Un bouton "Tous les projets" est aussi en haut et
+en bas de la page. Les cartes de l'accueil sont cliquables partout. Tous les liens sont roses
+(`--rose` dans `assets/css/style.css`), pas de bleu nulle part.
 
 ## Langue FR / EN
 Le site est bilingue : un bouton FR/EN en haut à droite bascule tout le texte, et le choix est

@@ -1,20 +1,54 @@
-{%- assign parts = include.start | split: "-" -%}
-{%- assign year = parts[0] -%}
-{%- assign month_num = parts[1] | plus: 0 -%}
-{%- assign month_index = month_num | minus: 1 -%}
-{%- assign month_name = site.data.months[include.lang][month_index] -%}
-{%- if include.end and include.end != "" -%}
-  {%- assign eparts = include.end | split: "-" -%}
-  {%- assign eyear = eparts[0] -%}
-  {%- assign emonth_num = eparts[1] | plus: 0 -%}
-  {%- assign emonth_index = emonth_num | minus: 1 -%}
-  {%- assign emonth_name = site.data.months[include.lang][emonth_index] -%}
-  {%- assign end_text = emonth_name | append: " " | append: eyear -%}
-{%- else -%}
-  {%- if include.lang == "fr" -%}
-    {%- assign end_text = "Présent" -%}
+{%- comment -%}
+  Période d'un projet. Paramètres : start, end (vide = en cours), lang (fr / en).
+  Dates entre guillemets dans le front matter, au mois ("2026-03") ou au jour ("2026-03-02") :
+    mois / mois        Janvier 2026 - Mars 2026
+    même mois          Mars 2026
+    jour / jour        2 - 8 mars 2026   (ou 28 fév - 5 mars 2026, ou un seul jour)
+    pas de fin         Mars 2026 - Présent
+{%- endcomment -%}
+{%- assign lang = include.lang -%}
+{%- assign sp = include.start | split: "-" -%}
+{%- assign sy = sp[0] -%}
+{%- assign sm = sp[1] | plus: 0 | minus: 1 -%}
+{%- assign s_month = site.data.months[lang][sm] -%}
+{%- assign has_end = false -%}
+{%- if include.end and include.end != "" -%}{%- assign has_end = true -%}{%- endif -%}
+{%- if has_end -%}
+  {%- assign ep = include.end | split: "-" -%}
+  {%- assign ey = ep[0] -%}
+  {%- assign em = ep[1] | plus: 0 | minus: 1 -%}
+  {%- assign e_month = site.data.months[lang][em] -%}
+{%- endif -%}
+{%- if lang == "fr" -%}{%- assign now_text = "Présent" -%}{%- else -%}{%- assign now_text = "Present" -%}{%- endif -%}
+
+{%- if sp.size > 2 -%}
+  {%- assign sd = sp[2] | plus: 0 -%}
+  {%- if lang == "fr" -%}
+    {%- assign s_month = s_month | downcase -%}
+    {%- if has_end -%}{%- assign e_month = e_month | downcase -%}{%- endif -%}
+  {%- endif -%}
+  {%- if has_end == false -%}
+    {{ sd }} {{ s_month }} {{ sy }} - {{ now_text }}
+  {%- elsif ep.size > 2 -%}
+    {%- assign ed = ep[2] | plus: 0 -%}
+    {%- if include.start == include.end -%}
+      {{ sd }} {{ s_month }} {{ sy }}
+    {%- elsif sy == ey and sm == em -%}
+      {{ sd }} - {{ ed }} {{ s_month }} {{ sy }}
+    {%- elsif sy == ey -%}
+      {{ sd }} {{ s_month }} - {{ ed }} {{ e_month }} {{ sy }}
+    {%- else -%}
+      {{ sd }} {{ s_month }} {{ sy }} - {{ ed }} {{ e_month }} {{ ey }}
+    {%- endif -%}
   {%- else -%}
-    {%- assign end_text = "Present" -%}
+    {{ sd }} {{ s_month }} {{ sy }} - {{ e_month }} {{ ey }}
+  {%- endif -%}
+{%- else -%}
+  {%- if has_end == false -%}
+    {{ s_month }} {{ sy }} - {{ now_text }}
+  {%- elsif sy == ey and sm == em -%}
+    {{ s_month }} {{ sy }}
+  {%- else -%}
+    {{ s_month }} {{ sy }} - {{ e_month }} {{ ey }}
   {%- endif -%}
 {%- endif -%}
-{{ month_name }} {{ year }} - {{ end_text }}

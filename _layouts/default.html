@@ -3,7 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ page.title | default: site.title }}</title>
+  {% assign site_name = site.title | split: " | " | first %}
+  {% if page.layout == "project" %}
+    {% assign doc_title = page.title_fr | append: " | " | append: site_name %}
+  {% elsif page.url == "/" or page.title == nil or page.title == "" %}
+    {% assign doc_title = site.title %}
+  {% else %}
+    {% assign doc_title = page.title | append: " | " | append: site_name %}
+  {% endif %}
+  <title>{{ doc_title }}</title>
   <meta name="description" content="{{ site.description }}">
   {% comment %}
     Favicon: GitHub avatar site-wide, shown as a circle. On a project page,

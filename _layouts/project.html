@@ -3,9 +3,10 @@ layout: default
 ---
 {% assign vt_slug = page.title_fr | slugify %}
 <article class="project-page">
-  <a href="{{ '/' | relative_url }}#project-{{ vt_slug }}" class="back-link">
-    <span lang="fr">← retour aux projets</span>
-    <span lang="en" hidden>← back to projects</span>
+  <a href="{{ '/' | relative_url }}#project-{{ vt_slug }}" class="back-btn">
+    <span aria-hidden="true">←</span>
+    <span lang="fr">Tous les projets</span>
+    <span lang="en" hidden>All projects</span>
   </a>
 
   {% unless page.locked %}
@@ -24,34 +25,37 @@ layout: default
   {% endif %}
   {% endunless %}
 
-  <p class="pane-label">project.md</p>
-  {% if page.project_type and page.project_type != "" %}
-  {% assign ptype = site.data.project_types[page.project_type] %}
-  <span class="project-type project-type-{{ ptype.color }}">
-    <span lang="fr">{{ ptype.fr }}</span>
-    <span lang="en" hidden>{{ ptype.en }}</span>
-  </span>
-  {% endif %}
-  <h1 class="project-title" style="view-transition-name: card-title-{{ vt_slug }};">
-    <span lang="fr">{{ page.title_fr }}</span>
-    <span lang="en" hidden>{{ page.title_en | default: page.title_fr }}</span>
-  </h1>
-  {% if page.start_date and page.start_date != "" %}
-  <p class="project-dates">
-    <span lang="fr">{% include date-range.html start=page.start_date end=page.end_date lang="fr" %}</span>
-    <span lang="en" hidden>{% include date-range.html start=page.start_date end=page.end_date lang="en" %}</span>
-  </p>
-  {% endif %}
-  <p class="project-subtitle">
-    <span lang="fr">{{ page.subtitle_fr }}</span>
-    <span lang="en" hidden>{{ page.subtitle_en | default: page.subtitle_fr }}</span>
-  </p>
+  <header class="project-header">
+    <h1 class="project-title" style="view-transition-name: card-title-{{ vt_slug }};">
+      <span lang="fr">{{ page.title_fr }}</span>
+      <span lang="en" hidden>{{ page.title_en | default: page.title_fr }}</span>
+    </h1>
+    <div class="meta-row project-meta">
+      {% if page.project_type and page.project_type != "" %}
+      {% assign ptype = site.data.project_types[page.project_type] %}
+      <span class="project-type project-type-{{ ptype.color }}">
+        <span lang="fr">{{ ptype.fr }}</span>
+        <span lang="en" hidden>{{ ptype.en }}</span>
+      </span>
+      {% endif %}
+      {% include project-dates.html project=page cls="project-dates" %}
+    </div>
+    <p class="project-subtitle">
+      <span lang="fr">{{ page.subtitle_fr }}</span>
+      <span lang="en" hidden>{{ page.subtitle_en | default: page.subtitle_fr }}</span>
+    </p>
 
-  {% if page.tags %}
-  <div class="tags">
-    {% for tag in page.tags %}<span class="tag">{{ tag }}</span>{% endfor %}
-  </div>
-  {% endif %}
+    {% include tags.html tags=page.tags %}
+
+    {% if page.link and page.link != "" and page.locked != true %}
+    <div class="project-actions">
+      <a class="btn btn-line" href="{{ page.link }}" target="_blank" rel="noopener">
+        <span lang="fr">Voir le projet en ligne ↗</span>
+        <span lang="en" hidden>View live project ↗</span>
+      </a>
+    </div>
+    {% endif %}
+  </header>
 
   {% if page.locked %}
   <div class="locked-notice">
@@ -62,40 +66,54 @@ layout: default
   </div>
   {% else %}
 
-  {% if page.link and page.link != "" %}
-  <a class="card-link" href="{{ page.link }}" target="_blank" rel="noopener">
-    <span lang="fr">↗ voir le projet en ligne</span>
-    <span lang="en" hidden>↗ view live project</span>
-  </a>
-  {% endif %}
-
+  {%- comment -%} Texts are written with root paths (/assets/...): prefix them with the site's baseurl. {%- endcomment -%}
+  {% assign asset_attr = '="' | append: site.baseurl | append: '/assets/' %}
   <div class="project-body">
-    <div lang="fr">{{ page.description_fr | markdownify }}</div>
-    <div lang="en" hidden>{{ page.description_en | default: page.description_fr | markdownify }}</div>
+    <div lang="fr">{{ page.description_fr | markdownify | replace: '="/assets/', asset_attr }}</div>
+    <div lang="en" hidden>{{ page.description_en | default: page.description_fr | markdownify | replace: '="/assets/', asset_attr }}</div>
   </div>
 
   {% if page.gallery.size > 0 %}
-  <p class="pane-label">gallery</p>
-  <div class="project-gallery">
-    {% for item in page.gallery %}
+  <section class="project-media" aria-labelledby="media-heading">
+    <h2 class="media-heading" id="media-heading">
+      <span lang="fr">Médias</span>
+      <span lang="en" hidden>Media</span>
+      <span class="media-count">{{ page.gallery.size }}</span>
+    </h2>
+    <div class="project-gallery">
+      {% for item in page.gallery %}
+      {% assign file = item | split: "/" | last %}
+      {% assign caption = file | replace: ".mp4", "" | replace: ".webm", "" | replace: ".mov", "" | replace: ".png", "" | replace: ".jpg", "" | replace: ".jpeg", "" | replace: ".gif", "" | replace: ".webp", "" %}
       {% if item contains ".mp4" or item contains ".webm" or item contains ".mov" %}
-      <div id="gallery-{{ forloop.index }}" class="gallery-item">
-        <video src="{{ item | relative_url }}#t=0.001" muted loop playsinline controls preload="metadata"></video>
-        <span class="gallery-index">#{{ forloop.index }}</span>
-      </div>
+      {% assign poster = item | replace: ".mp4", ".poster.jpg" | replace: ".webm", ".poster.jpg" | replace: ".mov", ".poster.jpg" %}
+      {% assign has_poster = false %}
+      {% for f in site.static_files %}{% if f.path == poster %}{% assign has_poster = true %}{% endif %}{% endfor %}
+      <a id="gallery-{{ forloop.index }}" class="gallery-item" href="{{ item | relative_url }}" data-type="video" data-caption="{{ caption }}">
+        <span class="gallery-thumb">
+          {% if has_poster %}
+          <video src="{{ item | relative_url }}" poster="{{ poster | relative_url }}" muted loop playsinline preload="none" tabindex="-1"></video>
+          {% else %}
+          <video src="{{ item | relative_url }}#t=0.5" muted loop playsinline preload="metadata" tabindex="-1"></video>
+          {% endif %}
+          <span class="play-badge" aria-hidden="true"></span>
+        </span>
+        <span class="gallery-caption">{{ caption }}</span>
+      </a>
       {% else %}
-      <a id="gallery-{{ forloop.index }}" class="gallery-item" href="{{ item | relative_url }}" target="_blank" rel="noopener">
-        <img src="{{ item | relative_url }}" alt="" loading="lazy">
-        <span class="gallery-index">#{{ forloop.index }}</span>
+      <a id="gallery-{{ forloop.index }}" class="gallery-item" href="{{ item | relative_url }}" data-type="image" data-caption="{{ caption }}">
+        <span class="gallery-thumb"><img src="{{ item | relative_url }}" alt="" loading="lazy"></span>
+        <span class="gallery-caption">{{ caption }}</span>
       </a>
       {% endif %}
-    {% endfor %}
-  </div>
+      {% endfor %}
+    </div>
+  </section>
   {% endif %}
   {% endif %}
 
-  <a href="{{ '/' | relative_url }}#project-{{ vt_slug }}" class="back-link back-link-bottom">
-    <span lang="fr">← retour aux projets</span>
-    <span lang="en" hidden>← back to projects</span>
+  <a href="{{ '/' | relative_url }}#project-{{ vt_slug }}" class="back-btn back-btn-bottom">
+    <span aria-hidden="true">←</span>
+    <span lang="fr">Tous les projets</span>
+    <span lang="en" hidden>All projects</span>
   </a>
 </article>

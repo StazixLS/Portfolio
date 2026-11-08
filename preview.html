@@ -3,182 +3,463 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aperçu — Portfolio</title>
+  
+  
+  <title>Sev FORNER | Portfolio</title>
+  <meta name="description" content="Gameplay / AI / Tools Programmer">
+  
+  
+  
+  
+  
+  
+  <link rel="icon" id="js-favicon" href="https://avatars.githubusercontent.com/u/183628841?v=4">
+  
+  <script>
+  (function () {
+    var link = document.getElementById('js-favicon');
+    var shape = "circle";
+    var img = new Image();
+    img.crossOrigin = 'anonymous';
+    img.onload = function () {
+      try {
+        var size = 64;
+        var canvas = document.createElement('canvas');
+        canvas.width = size;
+        canvas.height = size;
+        var ctx = canvas.getContext('2d');
+        ctx.save();
+        ctx.beginPath();
+        if (shape === 'circle') {
+          ctx.arc(size / 2, size / 2, size / 2, 0, Math.PI * 2);
+        } else {
+          var r = size * 0.22;
+          ctx.moveTo(r, 0);
+          ctx.arcTo(size, 0, size, size, r);
+          ctx.arcTo(size, size, 0, size, r);
+          ctx.arcTo(0, size, 0, 0, r);
+          ctx.arcTo(0, 0, size, 0, r);
+        }
+        ctx.closePath();
+        ctx.clip();
+        var sw = img.naturalWidth || size;
+        var sh = img.naturalHeight || size;
+        var scale = Math.max(size / sw, size / sh);
+        var dw = sw * scale, dh = sh * scale;
+        ctx.drawImage(img, (size - dw) / 2, (size - dh) / 2, dw, dh);
+        ctx.restore();
+        link.href = canvas.toDataURL('image/png');
+      } catch (e) {
+        /* Tainted canvas (no CORS) or other failure: leave the plain
+           icon already set above. Never worse than before. */
+      }
+    };
+    img.src = "https://avatars.githubusercontent.com/u/183628841?v=4";
+  })();
+  </script>
+  
+  
   <link rel="stylesheet" href="assets/css/fonts.css">
   <link rel="stylesheet" href="assets/css/style.css">
-  <style>
-    .media-placeholder {
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, rgba(235,111,146,0.18), rgba(156,207,216,0.12));
-      color: var(--muted);
-      font-family: var(--font-mono);
-      font-size: 12px;
-      border-bottom: 1px solid var(--border);
-    }
-  </style>
 </head>
 <body>
   <div class="editor">
-
     <div class="titlebar">
-      <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-      <span class="titlebar-path">Portfolio.sln — alex-martin — Visual Studio</span>
-      <div class="lang-switch" role="group" aria-label="Langue / Language">
-        <button type="button" class="lang-btn" data-lang-btn="fr" aria-pressed="true">FR</button>
-        <button type="button" class="lang-btn" data-lang-btn="en" aria-pressed="false">EN</button>
+  <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+  <span class="titlebar-path">Portfolio.sln - StazixLS - Visual Studio</span>
+  <div class="lang-switch" role="group" aria-label="Langue / Language">
+    <button type="button" class="lang-btn" data-lang-btn="fr" aria-pressed="true">FR</button>
+    <button type="button" class="lang-btn" data-lang-btn="en" aria-pressed="false">EN</button>
+  </div>
+</div>
+
+    
+<nav class="tabs" aria-label="Navigation">
+  <a href="preview.html#about" class="tab" data-tab="about"><span class="tab-dot"></span>About.cs</a>
+  <a href="preview.html#projets" class="tab" data-tab="projets"><span class="tab-dot"></span>Projects.json</a>
+  <a href="preview.html#profile" class="tab" data-tab="profile"><span class="tab-dot"></span>Profile.md</a>
+  <a href="preview.html#parcours" class="tab" data-tab="parcours"><span class="tab-dot"></span>Parcours.yml</a>
+  <a href="preview.html#contact" class="tab" data-tab="contact"><span class="tab-dot"></span>Contact.xaml</a>
+</nav>
+
+    <main class="editor-content">
+      
+<section id="about" class="pane">
+  <div class="hero">
+    
+    
+    <img src="https://avatars.githubusercontent.com/u/183628841?v=4" alt="StazixLS" class="hero-avatar" onerror="this.remove()">
+    
+    
+    <div class="hero-text">
+      <h1 class="hero-name">Sev FORNER<span class="cursor">_</span></h1>
+      <p class="hero-role">
+        <span lang="fr">&gt; Gameplay / AI / Tools Programmer</span>
+        <span lang="en" hidden>&gt; Gameplay / AI / Tools Programmer</span>
+      </p>
+      <p class="hero-bio">
+        <span lang="fr">Développeur passionné par le jeu vidéo, je code en C++, C# et Python, et je navigue entre Unity, Unreal Engine et WPF selon les projets. J'aime particulièrement le gameplay et les outils qui simplifient le travail en équipe : transformer une idée en quelque chose de jouable, du prototype à la version finale.</span>
+        <span lang="en" hidden>I'm a game developer who codes in C++, C#, and Python, moving between Unity, Unreal Engine, and WPF depending on the project. I especially enjoy gameplay programming and building tools that make teamwork easier: turning an idea into something playable, from first prototype to final build.</span>
+      </p>
+      <div class="hero-actions">
+        <a href="#projets" class="btn btn-fill">
+          <span lang="fr">Voir mes projets</span>
+          <span lang="en" hidden>View my projects</span>
+        </a>
+        <a href="#contact" class="btn btn-line">
+          <span lang="fr">Me contacter</span>
+          <span lang="en" hidden>Get in touch</span>
+        </a>
+        <span class="hero-social">
+          <a class="icon-btn" href="https://github.com/StazixLS" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg></a>
+          <a class="icon-btn" href="https://linkedin.com/in/sev-forner-13300a44a" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+          <a class="icon-btn" href="mailto:sev.forner@gmail.com" aria-label="Mail" title="Mail"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3.5 7.5l8.5 6 8.5-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/></svg></a>
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projets" class="pane">
+  <h2 class="pane-title">
+    <span lang="fr">Projets</span>
+    <span lang="en" hidden>Projects</span>
+  </h2>
+
+  <div class="grid">
+    
+    
+    <article class="card card-clickable" id="project-projet-la-poste">
+  
+  <div class="card-media" style="view-transition-name: card-media-projet-la-poste;">
+    <img src="assets/projects/La Poste/Cover.svg" alt="" loading="lazy">
+  </div>
+  
+
+  <div class="card-body">
+    <h3 class="card-title" style="view-transition-name: card-title-projet-la-poste;">
+      <span lang="fr">Projet La Poste</span>
+      <span lang="en" hidden>La Poste Project</span>
+    </h3>
+    <div class="meta-row card-meta">
+      
+      
+      <span class="project-type project-type-rose">
+        <span lang="fr">Projet professionnel</span>
+        <span lang="en" hidden>Professional project</span>
+      </span>
+      
+      <span class="card-dates">
+  <span lang="fr">Janvier 2026 - Mars 2026</span>
+  <span lang="en" hidden>January 2026 - March 2026</span>
+</span>
+    </div>
+    <p class="card-subtitle">
+      <span lang="fr">Serious game VR : formation & sensibilisation</span>
+      <span lang="en" hidden>VR serious game: training & awareness</span>
+    </p>
+    <p class="card-summary">
+      <span lang="fr">Contribution aux mécaniques et interactions de deux modules de formation VR pour La Poste, projet client réel mené via l'école.</span>
+      <span lang="en" hidden>Contributed to the mechanics and interactions of two VR training modules for La Poste, a real client project run through school.</span>
+    </p>
+    <div class="tags"><span class="tag tag-engine">Unity</span><span class="tag tag-lang">C#</span><span class="tag tag-domain">VR</span></div>
+    <div class="card-actions">
+      
+      <a class="btn btn-fill btn-sm card-link-main" href="preview-project.html">
+        <span lang="fr">Voir le projet</span>
+        <span lang="en" hidden>View project</span>
+        <span aria-hidden="true">→</span>
+      </a>
+      
+      
+      <a class="btn btn-line btn-sm card-link-ext" href="https://www.linkedin.com/posts/santaezsaezcuritaeztravail-laposte-ugcPost-7447257936340455425-iHXG/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAGP3VwcBC5j46txAf7VX7F60ZpaOPMh-gRc" target="_blank" rel="noopener">
+        <span lang="fr">Voir en ligne ↗</span>
+        <span lang="en" hidden>View live ↗</span>
+      </a>
+      
+    </div>
+  </div>
+</article>
+
+    
+    <article class="card card-clickable" id="project-nelli-the-seer">
+  
+  <div class="card-media" style="view-transition-name: card-media-nelli-the-seer;">
+    <img src="assets/projects/Nelli The Seer/Cover.png" alt="" loading="lazy">
+  </div>
+  
+
+  <div class="card-body">
+    <h3 class="card-title" style="view-transition-name: card-title-nelli-the-seer;">
+      <span lang="fr">Nelli the Seer</span>
+      <span lang="en" hidden>Nelli the Seer</span>
+    </h3>
+    <div class="meta-row card-meta">
+      
+      
+      <span class="project-type project-type-foam">
+        <span lang="fr">Projet étudiant</span>
+        <span lang="en" hidden>Student project</span>
+      </span>
+      
+      <span class="card-dates">
+  <span lang="fr">Mars 2025 - Juillet 2025</span>
+  <span lang="en" hidden>March 2025 - July 2025</span>
+</span>
+    </div>
+    <p class="card-subtitle">
+      <span lang="fr">Projet étudiant : action-aventure & puzzle-platformer</span>
+      <span lang="en" hidden>Student project: action-adventure & puzzle-platformer</span>
+    </p>
+    <p class="card-summary">
+      <span lang="fr">Conception d'une partie de l'UI et de la navigation manette d'un action-aventure sorti sur Steam.</span>
+      <span lang="en" hidden>Designed part of the UI and gamepad navigation for an action-adventure released on Steam.</span>
+    </p>
+    <div class="tags"><span class="tag tag-engine">Unreal Engine 5</span><span class="tag tag-lang">C++</span><span class="tag tag-lang">Blueprint</span><span class="tag tag-domain">UI/UX</span></div>
+    <div class="card-actions">
+      
+      <a class="btn btn-fill btn-sm card-link-main" href="#">
+        <span lang="fr">Voir le projet</span>
+        <span lang="en" hidden>View project</span>
+        <span aria-hidden="true">→</span>
+      </a>
+      
+      
+      <a class="btn btn-line btn-sm card-link-ext" href="https://store.steampowered.com/app/3801320/Nelli_The_Seer/" target="_blank" rel="noopener">
+        <span lang="fr">Voir en ligne ↗</span>
+        <span lang="en" hidden>View live ↗</span>
+      </a>
+      
+    </div>
+  </div>
+</article>
+
+    
+    
+    <article class="card card-soon" id="project-orestronics-protocol">
+  
+  <div class="card-media" style="view-transition-name: card-media-orestronics-protocol;">
+    <img src="assets/projects/OProtocol/SplashScreen.png" alt="" loading="lazy">
+  </div>
+  
+
+  <div class="card-body">
+    <h3 class="card-title" style="view-transition-name: card-title-orestronics-protocol;">
+      <span lang="fr">Orestronics Protocol</span>
+      <span lang="en" hidden>Orestronics Protocol</span>
+    </h3>
+    <div class="meta-row card-meta">
+      
+      
+      <span class="project-type project-type-gold">
+        <span lang="fr">Projet personnel</span>
+        <span lang="en" hidden>Personal project</span>
+      </span>
+      
+      <span class="card-dates">
+  <span lang="fr">Avril 2026 - Présent</span>
+  <span lang="en" hidden>April 2026 - Present</span>
+</span>
+    </div>
+    <p class="card-subtitle">
+      <span lang="fr">Projet perso : jeu multijoueur</span>
+      <span lang="en" hidden>Personal project: multiplayer game</span>
+    </p>
+    <p class="card-summary">
+      <span lang="fr">all game</span>
+      <span lang="en" hidden>all game</span>
+    </p>
+    <div class="tags"><span class="tag tag-engine">UE5</span><span class="tag tag-lang">C++</span><span class="tag tag-domain">Multiplayer</span></div>
+    <div class="card-actions">
+      
+      <span class="card-locked">
+        <span lang="fr">🔒 Bientôt disponible</span>
+        <span lang="en" hidden>🔒 Coming soon</span>
+      </span>
+      
+      
+    </div>
+  </div>
+</article>
+
+    
+  </div>
+</section>
+
+<section id="profile" class="pane">
+  <h2 class="pane-title">
+    <span lang="fr">Profil</span>
+    <span lang="en" hidden>Profile</span>
+  </h2>
+
+  <div class="profile-layout">
+    <div class="profile-prose">
+      <div>
+        <h3 class="profile-heading">
+          <span lang="fr">qui je suis</span>
+          <span lang="en" hidden>who I am</span>
+        </h3>
+        <p class="profile-text">
+          <span lang="fr">Je m'appelle Sev. Ce qui m'a attiré vers le développement de jeux vidéo, c'est cette idée qu'une poignée de lignes de code peut devenir une expérience que quelqu'un d'autre va ressentir, manette en main. Je suis plutôt branché gameplay et outils : concevoir des systèmes qui tiennent la route, et construire ce qui permet à toute une équipe d'avancer plus vite.</span>
+          <span lang="en" hidden>My name is Sev. What drew me to game development is the idea that a handful of lines of code can become an experience someone else actually feels, controller in hand. I lean toward gameplay and tools: designing systems that hold up, and building the things that let a whole team move faster.</span>
+        </p>
+      </div>
+
+      <div>
+        <h3 class="profile-heading">
+          <span lang="fr">mes débuts</span>
+          <span lang="en" hidden>how it started</span>
+        </h3>
+        <p class="profile-text">
+          <span lang="fr">Avant de me lancer dans le développement de jeux vidéo, j'ai commencé par bidouiller des command blocks dans Minecraft, puis des datapacks. C'est là que j'ai pris goût à comprendre comment un système fonctionne sous le capot, et à vouloir le refaire moi-même. La suite s'est imposée naturellement : si j'aimais déjà bricoler des mécaniques dans un jeu, autant apprendre à en faire un vrai.</span>
+          <span lang="en" hidden>Before getting into game development, I started out tinkering with command blocks in Minecraft, then datapacks. That's where I got a taste for understanding how a system works under the hood, and wanting to rebuild it myself. The next step came naturally: if I already enjoyed tinkering with mechanics inside a game, I might as well learn to make one for real.</span>
+        </p>
+      </div>
+
+      <div>
+        <h3 class="profile-heading">
+          <span lang="fr">ce que j'ai appris</span>
+          <span lang="en" hidden>what I learned</span>
+        </h3>
+        <p class="profile-text">
+          <span lang="fr">Nelli the Seer et La Poste m'ont surtout appris à travailler en équipe sur un vrai projet : versionner proprement avec Perforce et Git, documenter ce que je fais, et accepter qu'un outil n'a de valeur que si les autres s'en servent vraiment.</span>
+          <span lang="en" hidden>Nelli the Seer and La Poste mostly taught me how to work as part of a real team: versioning cleanly with Perforce and Git, documenting what I build, and accepting that a tool only has value if people actually use it.</span>
+        </p>
+      </div>
+
+      <div>
+        <h3 class="profile-heading">
+          <span lang="fr">ce que j'aimerais faire</span>
+          <span lang="en" hidden>what I'd like to do</span>
+        </h3>
+        <p class="profile-text">
+          <span lang="fr">La suite, j'aimerais la construire comme programmeur gameplay / outils dans un studio, continuer à apprendre au contact d'autres développeurs, et creuser des sujets qui m'intéressent comme la réalité virtuelle et l'intégration de l'IA dans les outils de production.</span>
+          <span lang="en" hidden>Looking ahead, I'd like to keep building as a gameplay/tools programmer in a studio, keep learning alongside other developers, and dig deeper into things that interest me, like virtual reality and bringing AI into production tooling.</span>
+        </p>
       </div>
     </div>
 
-    <nav class="tabs" aria-label="Navigation">
-      <a href="#profil" class="tab active" data-tab="profil"><span class="tab-dot"></span>About.cs</a>
-      <a href="#projets" class="tab" data-tab="projets"><span class="tab-dot"></span>Projects.json</a>
-      <a href="#contact" class="tab" data-tab="contact"><span class="tab-dot"></span>Contact.xaml</a>
-    </nav>
+    <aside class="panel properties" aria-label="Properties">
+      <div class="panel-bar">
+        <span class="panel-title">Properties</span>
+      </div>
+      <dl class="properties-list">
+        <div class="prop">
+          <dt><span lang="fr">Rôle</span><span lang="en" hidden>Role</span></dt>
+          <dd>Gameplay / AI / Tools Programmer</dd>
+        </div>
+        <div class="prop">
+          <dt><span lang="fr">Langages</span><span lang="en" hidden>Languages</span></dt>
+          <dd>C++, C#, Python</dd>
+        </div>
+        <div class="prop">
+          <dt>Tech</dt>
+          <dd>Unity, Unreal Engine, WPF</dd>
+        </div>
+        <div class="prop">
+          <dt><span lang="fr">Outils</span><span lang="en" hidden>Tools</span></dt>
+          <dd>Visual Studio, Rider, Perforce, Git, GitHub</dd>
+        </div>
+        <div class="prop">
+          <dt><span lang="fr">Intérêts</span><span lang="en" hidden>Interests</span></dt>
+          <dd>
+            <span lang="fr">Réalité virtuelle, IA dans les outils de production</span>
+            <span lang="en" hidden>Virtual reality, AI in production tooling</span>
+          </dd>
+        </div>
+        <div class="prop">
+          <dt><span lang="fr">Objectif</span><span lang="en" hidden>Goal</span></dt>
+          <dd>
+            <span lang="fr">Programmeur gameplay / outils en studio</span>
+            <span lang="en" hidden>Gameplay / tools programmer in a studio</span>
+          </dd>
+        </div>
+      </dl>
+    </aside>
+  </div>
+</section>
 
-    <main class="editor-content">
+<section id="parcours" class="pane">
+  <h2 class="pane-title">
+    <span lang="fr">Parcours</span>
+    <span lang="en" hidden>Background</span>
+  </h2>
 
-      <section id="profil" class="pane">
-        <p class="pane-label">About.cs</p>
-        <div class="hero-avatar" style="display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg, rgba(235,111,146,0.35), rgba(156,207,216,0.25));font-family:var(--font-mono);font-size:11px;color:var(--muted);">photo</div>
-        <h1 class="hero-name">Alex Martin<span class="cursor">_</span></h1>
-        <p class="hero-role">
-          <span lang="fr">&gt; Gameplay &amp; Tools Programmer</span>
-          <span lang="en" hidden>&gt; Gameplay &amp; Tools Programmer</span>
+  <ol class="timeline">
+    
+    <li class="timeline-item">
+      <span class="timeline-dot" aria-hidden="true"></span>
+      <div class="timeline-body">
+        <h3 class="timeline-title">Objectif 3D</h3>
+        <div class="meta-row">
+          
+          <span class="project-type project-type-iris">
+            <span lang="fr">Formation</span>
+            <span lang="en" hidden>Training</span>
+          </span>
+          
+          <span class="timeline-meta">Montferrier-sur-Lez</span>
+          
+        </div>
+        <p class="timeline-text">
+          <span lang="fr">Mon école. C'est là que j'ai travaillé sur Nelli the Seer, un projet étudiant sorti sur Steam, et sur le projet client La Poste avec 24 étudiants.</span>
+          <span lang="en" hidden>My school. It's where I worked on Nelli the Seer, a student project released on Steam, and on the La Poste client project with 24 students.</span>
         </p>
-        <p class="hero-bio">
-          <span lang="fr">Je conçois des systèmes de gameplay et des outils sur Unity et Unreal Engine. J'aime le code propre, les problèmes de 3C et les petits outils qui font gagner du temps en prod.</span>
-          <span lang="en" hidden>I build gameplay systems and tools in Unity and Unreal Engine. I like clean code, character-controller problems, and small tools that save time in production.</span>
+        
+        <p class="timeline-links">
+          <span class="timeline-links-label">
+            <span lang="fr">Projets réalisés :</span>
+            <span lang="en" hidden>Projects:</span>
+          </span>
+          
+          <a href="#">
+            <span lang="fr">Nelli the Seer</span>
+            <span lang="en" hidden>Nelli the Seer</span>
+          </a>
+          
+          <a href="preview-project.html">
+            <span lang="fr">Projet La Poste</span>
+            <span lang="en" hidden>La Poste Project</span>
+          </a>
+          
         </p>
-        <div class="hero-actions">
-          <a href="#projets" class="btn btn-fill">
-            <span lang="fr">voir mes projets</span>
-            <span lang="en" hidden>view my projects</span>
-          </a>
-          <a href="#contact" class="btn btn-line">
-            <span lang="fr">me contacter</span>
-            <span lang="en" hidden>get in touch</span>
-          </a>
-        </div>
-      </section>
+        
+      </div>
+    </li>
+    
+  </ol>
+</section>
 
-      <section id="projets" class="pane">
-        <p class="pane-label">Projects.json</p>
-        <h2 class="pane-title">
-          <span lang="fr">Projets</span>
-          <span lang="en" hidden>Projects</span>
-        </h2>
+<section id="contact" class="pane">
+  <h2 class="pane-title">Contact</h2>
 
-        <div class="grid">
-          <article class="card">
-            <div class="media-placeholder">image ou vidéo du projet ici</div>
-            <div class="card-body">
-              <p class="card-meta">// project_1</p>
-              <h3 class="card-title">
-                <span lang="fr">Projet La Poste</span>
-                <span lang="en" hidden>La Poste Project</span>
-              </h3>
-              <p class="card-subtitle">
-                <span lang="fr">Serious game VR — formation &amp; sensibilisation</span>
-                <span lang="en" hidden>VR serious game — training &amp; awareness</span>
-              </p>
-              <p class="card-summary">
-                <span lang="fr">Développement des systèmes d'interaction en réalité virtuelle pour un module de formation professionnelle.</span>
-                <span lang="en" hidden>Built the VR interaction systems for a professional training module.</span>
-              </p>
-              <div class="tags">
-                <span class="tag">Unity</span>
-                <span class="tag">C#</span>
-                <span class="tag">VR</span>
-              </div>
-              <div class="card-actions">
-                <a class="card-link" href="preview-project.html">
-                  <span lang="fr">→ en savoir plus</span>
-                  <span lang="en" hidden>→ learn more</span>
-                </a>
-                <a class="card-link card-link-ext" href="#" target="_blank" rel="noopener">
-                  <span lang="fr">↗ voir en ligne</span>
-                  <span lang="en" hidden>↗ view live</span>
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="media-placeholder">image ou vidéo du projet ici</div>
-            <div class="card-body">
-              <p class="card-meta">// project_2</p>
-              <h3 class="card-title">Nelli the Seer</h3>
-              <p class="card-subtitle">
-                <span lang="fr">[Sous-titre / genre du jeu]</span>
-                <span lang="en" hidden>[Subtitle / game genre]</span>
-              </p>
-              <p class="card-summary">
-                <span lang="fr">[Une phrase qui résume le projet.]</span>
-                <span lang="en" hidden>[One sentence summarizing the project.]</span>
-              </p>
-              <div class="tags">
-                <span class="tag">Unreal Engine</span>
-                <span class="tag">C++</span>
-              </div>
-              <div class="card-actions">
-                <a class="card-link" href="preview-project.html">
-                  <span lang="fr">→ en savoir plus</span>
-                  <span lang="en" hidden>→ learn more</span>
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <article class="card card-empty">
-            <p class="card-meta">// project_next</p>
-            <p class="card-empty-text">
-              <span lang="fr">+ prochain projet</span>
-              <span lang="en" hidden>+ next project</span>
-            </p>
-            <p class="card-empty-hint">
-              <span lang="fr">ajoute un fichier dans <code>_projects/</code></span>
-              <span lang="en" hidden>add a file in <code>_projects/</code></span>
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <section id="contact" class="pane">
-        <p class="pane-label">Contact.xaml</p>
-        <h2 class="pane-title">Contact</h2>
-
-        <div class="output-panel" data-compile>
-          <div class="output-bar">
-            <span class="output-title">Output</span>
-            <span class="output-scope">
-              <span lang="fr">Afficher la sortie de : Contact</span>
-              <span lang="en" hidden>Show output from: Contact</span>
-            </span>
-          </div>
-          <div class="output-body">
-            <p class="oline">1&gt;------ Build started: Project: Contact, Configuration: Release Any CPU ------</p>
-            <p class="oline">
-              1&gt;&nbsp;
-              <span lang="fr">Alex Martin — ouvert aux opportunités</span>
-              <span lang="en" hidden>Alex Martin — open to opportunities</span>
-            </p>
-            <p class="oline">1&gt;  Resolving reference <a href="#">Mail</a>... <span class="status ok">OK</span></p>
-            <p class="oline">1&gt;  Resolving reference <a href="#" target="_blank" rel="noopener">GitHub</a>... <span class="status ok">OK</span></p>
-            <p class="oline">1&gt;  Resolving reference <a href="#" target="_blank" rel="noopener">LinkedIn</a>... <span class="status ok">OK</span></p>
-            <p class="oline oline-summary">========== Build: 1 succeeded, 0 failed ==========</p>
-          </div>
-        </div>
-      </section>
+  <div class="output-panel" data-compile>
+    <div class="output-bar">
+      <span class="output-title">Output</span>
+      <span class="output-scope">
+        <span lang="fr">Afficher la sortie de : Contact</span>
+        <span lang="en" hidden>Show output from: Contact</span>
+      </span>
+    </div>
+    <div class="output-body">
+      <p class="oline">1&gt;------ Build started: Project: Contact, Configuration: Release Any CPU ------</p>
+      <p class="oline">
+        1&gt;&nbsp;
+        <span lang="fr">Sev FORNER : ouvert aux opportunités</span>
+        <span lang="en" hidden>Sev FORNER: open to opportunities</span>
+      </p>
+      <p class="oline">1&gt;&nbsp; Resolving reference <a class="contact-link" href="mailto:sev.forner@gmail.com"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3.5 7.5l8.5 6 8.5-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/></svg><span>Mail</span></a><span class="oline-end">... <span class="status ok">OK</span></span></p>
+      <p class="oline">1&gt;&nbsp; Resolving reference <a class="contact-link" href="https://github.com/StazixLS" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span>GitHub</span></a><span class="oline-end">... <span class="status ok">OK</span></span></p>
+      <p class="oline">1&gt;&nbsp; Resolving reference <a class="contact-link" href="https://linkedin.com/in/sev-forner-13300a44a" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg><span>LinkedIn</span></a><span class="oline-end">... <span class="status ok">OK</span></span></p>
+      <p class="oline oline-summary">========== Build: 1 succeeded, 0 failed ==========</p>
+    </div>
+  </div>
+</section>
 
     </main>
-
     <footer class="footer">
-      <span class="comment">// © 2026 alex-martin — généré avec Jekyll</span>
-    </footer>
+  <span class="comment">// © 2026 StazixLS · généré avec Jekyll</span>
+</footer>
 
   </div>
   <script src="assets/js/main.js"></script>

@@ -1,0 +1,9 @@
+{%- comment -%} Rangée de tags colorés par catégorie (voir _data/tags.yml). Paramètre : tags=<liste>. {%- endcomment -%}
+{%- if include.tags and include.tags.size > 0 -%}
+<div class="tags">
+  {%- for tag in include.tags -%}
+  {%- assign tag_kind = site.data.tags[tag] | default: "other" -%}
+  <span class="tag tag-{{ tag_kind }}">{{ tag }}</span>
+  {%- endfor -%}
+</div>
+{%- endif -%}

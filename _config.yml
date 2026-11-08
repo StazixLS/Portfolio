@@ -26,3 +26,5 @@ exclude:
   - SETUP.md
   - preview.html
   - preview-project.html
+  - tools
+  - _site_preview
