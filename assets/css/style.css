@@ -23,6 +23,7 @@
   --peach: #ebbcba;
   --peach-soft: rgba(235, 188, 186, 0.12);
   --ok: #9ece6a;
+  --ok-soft: rgba(158, 206, 106, 0.12);
   --code-bg: #15131f;
   --code-comment: #837f9d;
 
@@ -321,8 +322,8 @@ a.tab:hover { color: var(--text); background: rgba(255, 255, 255, 0.02); }
 .project-type-iris { background: var(--iris-soft); color: var(--iris); }
 .project-type-peach { background: var(--peach-soft); color: var(--peach); }
 
-/* Tags: square-ish chips (the type pill is fully round), tinted by category
-   from _data/tags.yml. A tag without a category stays neutral. */
+/* Tags: square-ish chips (the type pill is fully round), one color per tag
+   from _data/tags.yml so the tags of a project are told apart at a glance. */
 .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
 .tag {
   font-family: var(--font-mono);
@@ -332,9 +333,12 @@ a.tab:hover { color: var(--text); background: rgba(255, 255, 255, 0.02); }
   background: var(--overlay);
   color: var(--subtle);
 }
-.tag-engine { background: var(--foam-soft); color: var(--foam); }
-.tag-lang { background: var(--iris-soft); color: var(--iris); }
-.tag-domain { background: var(--gold-soft); color: var(--gold); }
+.tag-rose { background: var(--rose-soft); color: var(--rose); }
+.tag-foam { background: var(--foam-soft); color: var(--foam); }
+.tag-gold { background: var(--gold-soft); color: var(--gold); }
+.tag-iris { background: var(--iris-soft); color: var(--iris); }
+.tag-peach { background: var(--peach-soft); color: var(--peach); }
+.tag-ok { background: var(--ok-soft); color: var(--ok); }
 
 .card-actions { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-top: auto; padding-top: 4px; }
 /* The whole card is the click target: its main button stretches over it, so

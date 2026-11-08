@@ -1,9 +1,14 @@
-{%- comment -%} Rangée de tags colorés par catégorie (voir _data/tags.yml). Paramètre : tags=<liste>. {%- endcomment -%}
+{%- comment -%} Rangée de tags colorés (voir _data/tags.yml). Paramètre : tags=<liste>. {%- endcomment -%}
 {%- if include.tags and include.tags.size > 0 -%}
+{%- assign tag_palette = "rose,foam,gold,iris,peach,ok" | split: "," -%}
 <div class="tags">
   {%- for tag in include.tags -%}
-  {%- assign tag_kind = site.data.tags[tag] | default: "other" -%}
-  <span class="tag tag-{{ tag_kind }}">{{ tag }}</span>
+  {%- assign tag_color = site.data.tags[tag] -%}
+  {%- unless tag_color -%}
+    {%- assign tag_idx = tag | size | modulo: 6 -%}
+    {%- assign tag_color = tag_palette[tag_idx] -%}
+  {%- endunless -%}
+  <span class="tag tag-{{ tag_color }}">{{ tag }}</span>
   {%- endfor -%}
 </div>
 {%- endif -%}

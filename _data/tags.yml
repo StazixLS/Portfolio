@@ -1,26 +1,24 @@
-# Catégorie de chaque tag (donne sa couleur). Un tag absent de cette liste
-# reste affiché, simplement en gris.
-#
-#   engine  moteur / framework      (bleu-vert)
-#   lang    langage                 (violet)
-#   domain  domaine / spécialité    (or)
+# Couleur de chaque tag : rose, foam (bleu-vert), gold (or), iris (violet),
+# peach (pêche) ou ok (vert). Un même tag a la même couleur sur tout le site.
+# Un tag absent de cette liste reçoit quand même une couleur, choisie d'après
+# son nom (toujours la même pour un même nom) : ajoute-le ici pour la fixer.
 
-Unity: engine
-Unreal Engine: engine
-Unreal Engine 5: engine
-UE5: engine
-WPF: engine
+Unity: foam
+Blueprint: foam
+Unreal Engine: iris
+Unreal Engine 5: iris
+UE5: iris
+WPF: peach
 
-"C#": lang
-"C++": lang
-Python: lang
-Blueprint: lang
+"C#": gold
+"C++": rose
+Python: ok
 
-VR: domain
-Multiplayer: domain
-"UI/UX": domain
-Gameplay: domain
-IA: domain
-AI: domain
-Tools: domain
-Outils: domain
+VR: peach
+Multiplayer: ok
+"UI/UX": gold
+Gameplay: iris
+IA: foam
+AI: foam
+Tools: rose
+Outils: rose

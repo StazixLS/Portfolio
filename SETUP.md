@@ -70,9 +70,9 @@ rien changer à ta config ni passer par un hébergement externe. Le site est à
 - `summary_fr` / `summary_en`: UNE phrase courte, affichée sur la carte de la page d'accueil
 - `description_fr` / `description_en`: le texte complet, affiché sur la page dédiée du projet
   (`/projects/nom-du-projet/`) — aussi long que tu veux, plusieurs paragraphes
-- `tags`: liste de technos. Leur couleur vient de `_data/tags.yml` (moteur en bleu-vert, langage
-  en violet, domaine en or). Un tag absent de ce fichier s'affiche en gris : ajoute-le à la liste
-  pour lui donner une catégorie
+- `tags`: liste de technos. Chaque tag a sa propre couleur, définie dans `_data/tags.yml` (la même sur
+  tout le site, pour que les tags d'un projet se distinguent d'un coup d'œil). Un tag absent de ce
+  fichier reçoit quand même une couleur d'après son nom : ajoute-le à la liste pour choisir laquelle
 - `link`: lien externe optionnel (Steam, page du studio, itch.io...), affiché en plus du lien interne
 - `image` / `video` / `video_embed`: média principal, affiché en haut de la carte ET en haut de
   la page dédiée. Ne remplis qu'un seul des trois
