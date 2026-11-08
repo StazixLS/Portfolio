@@ -46,8 +46,8 @@ commande nécessaire. Les deux marchent sans wifi.
 Chaque projet a maintenant sa propre page (`/projects/nom-du-projet/`), générée automatiquement
 à partir des fichiers dans `_projects/`. C'est une fonctionnalité native de Jekyll (les "collections"),
 pas un plugin — donc ça continue de marcher avec le build Jekyll standard de GitHub Pages, sans
-rien changer à ta config ni passer par un hébergement externe. Le site reste à
-`https://ton-pseudo.github.io`.
+rien changer à ta config ni passer par un hébergement externe. Le site est à
+`https://stazixls.github.io/portfolio/` (le repo s'appelle `portfolio`, voir "Mettre en ligne").
 
 ## Structure d'un projet (`_projects/*.md`)
 - `start_date` / `end_date`: toujours entre guillemets, au mois (`"2024-09"`) ou au jour
@@ -361,11 +361,20 @@ script JS affiche/masque le bon bloc. Pense à toujours remplir les deux version
 de chaque champ.
 
 ## Mettre en ligne avec GitHub Pages
-1. Crée un repo qui s'appelle **exactement** `ton-pseudo.github.io`
-2. Pousse tout le contenu de ce dossier à la racine de CE repo (pas dans le repo `ton-pseudo/ton-pseudo`
-   qui sert à ta page de profil GitHub — ce sont deux repos différents)
-3. Dans Settings > Pages, source = branche `main`, dossier `/ (root)`
-4. GitHub build automatiquement le site Jekyll — pas besoin de lancer `jekyll build` toi-même,
+Le site est un "site de projet" : le repo s'appelle `portfolio`, donc il est servi à
+`https://stazixls.github.io/portfolio/`. C'est `baseurl: "/portfolio"` dans `_config.yml` qui le dit
+à Jekyll : tous les liens et chemins du site (CSS, polices, images, pages) en tiennent compte. Si tu
+renommes le repo un jour, change cette ligne en même temps, sinon plus rien ne se charge.
+
+1. Repo `stazixls/portfolio` (le nom doit être identique à `baseurl`, sans le `/`)
+2. Settings > Pages, source = branche `main`, dossier `/ (root)`
+3. GitHub build automatiquement le site Jekyll : pas besoin de lancer `jekyll build` toi-même,
    ni de pousser le dossier `_site`
-5. Le site est en ligne à `https://ton-pseudo.github.io` en quelques minutes (regarde l'onglet
-   "Actions" du repo si ça ne s'affiche pas, le log de build y est visible)
+4. Le site est en ligne en quelques minutes (onglet "Actions" du repo si ça ne s'affiche pas, le
+   log de build y est visible)
+
+Dans les textes des projets, écris toujours les chemins comme `/assets/projects/...` (avec le `/`
+au début) : le préfixe `/portfolio` est ajouté tout seul au moment de la génération.
+
+La racine `https://stazixls.github.io/` est tenue par le repo `StazixLS.github.io`, qui ne contient
+qu'une page de redirection vers `/portfolio/` (les anciens liens vers le site continuent de marcher).

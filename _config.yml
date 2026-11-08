@@ -1,6 +1,8 @@
 title: "Sev FORNER | Portfolio"
 description: "Gameplay / AI / Tools Programmer"
 author: "StazixLS"
+url: "https://stazixls.github.io"
+baseurl: "/portfolio"
 avatar: "https://avatars.githubusercontent.com/u/183628841?v=4"
 
 collections:
