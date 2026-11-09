@@ -2,6 +2,7 @@
 start_date: ""
 end_date: ""
 project_type: "student"
+initials: "FGTB"
 title_fr: "Projet secret"
 title_en: "Secret project"
 subtitle_fr: ""
