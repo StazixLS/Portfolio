@@ -40,8 +40,10 @@ layout: default
         <span lang="en" hidden>{{ ptype.en }}</span>
       </span>
       {% endif %}
-      {% include team-size.html project=page cls="project-dates" %}
-      {% include project-dates.html project=page cls="project-dates" %}
+      <span class="meta-info">
+        {% include team-size.html project=page cls="project-dates" %}
+        {% include project-dates.html project=page cls="project-dates" %}
+      </span>
     </div>
     <p class="project-subtitle">
       <span lang="fr">{{ page.subtitle_fr }}</span>

@@ -30,13 +30,11 @@
         <span lang="en" hidden>{{ ptype.en }}</span>
       </span>
       {% endif %}
-      {% include team-size.html project=p cls="card-dates" %}
-      {% include project-dates.html project=p cls="card-dates" %}
+      <span class="meta-info">
+        {% include team-size.html project=p cls="card-dates" %}
+        {% include project-dates.html project=p cls="card-dates" %}
+      </span>
     </div>
-    <p class="card-subtitle">
-      <span lang="fr">{{ p.subtitle_fr }}</span>
-      <span lang="en" hidden>{{ p.subtitle_en | default: p.subtitle_fr }}</span>
-    </p>
     <p class="card-summary">
       <span lang="fr">{{ p.summary_fr }}</span>
       <span lang="en" hidden>{{ p.summary_en | default: p.summary_fr }}</span>
