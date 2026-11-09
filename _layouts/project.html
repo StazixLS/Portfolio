@@ -48,6 +48,7 @@ layout: default
       <span lang="en" hidden>{{ page.subtitle_en | default: page.subtitle_fr }}</span>
     </p>
 
+    {% include project-role.html project=page cls="project-role" %}
     {% include tags.html tags=page.tags %}
 
     {% if page.link and page.link != "" and page.locked != true %}

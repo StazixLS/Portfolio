@@ -41,6 +41,7 @@
       <span lang="fr">{{ p.summary_fr }}</span>
       <span lang="en" hidden>{{ p.summary_en | default: p.summary_fr }}</span>
     </p>
+    {% include project-role.html project=p cls="card-role" %}
     {% include tags.html tags=p.tags %}
     <div class="card-actions">
       {% if p.locked %}

@@ -69,6 +69,9 @@ rien changer à ta config ni passer par un hébergement externe. Le site est à
   besoin de type : une `end_date` vide affiche déjà "Présent"
 - `team_size` (facultatif): le nombre de personnes sur le projet, affiché avant les dates :
   `1` → "Solo", `2` → "Binôme", `5` → "Équipe de 5". Sans ce champ, rien n'est affiché
+- `role_fr` / `role_en` (facultatif): ton rôle en une courte phrase, ex: `role_fr: "IA des ennemis et UI"`.
+  Affiché sur la carte et sur la page du projet. Laisse vide si tu as tout fait ou si c'est trop
+  long à expliquer (projet en binôme, par exemple) : rien ne s'affiche
 - `title_fr` / `title_en`, `subtitle_fr` / `subtitle_en`
 - `summary_fr` / `summary_en`: UNE phrase courte, affichée sur la carte de la page d'accueil
 - `description_fr` / `description_en`: le texte complet, affiché sur la page dédiée du projet

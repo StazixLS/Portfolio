@@ -1,0 +1,11 @@
+{%- comment -%}
+  Rôle sur le projet (champs facultatifs role_fr / role_en, une courte phrase). Rien n'est
+  affiché si le champ est vide. Paramètres : project, cls (classe CSS du paragraphe).
+{%- endcomment -%}
+{%- assign rl = include.project -%}
+{%- if rl.role_fr and rl.role_fr != "" -%}
+<p class="{{ include.cls }}">
+  <span lang="fr"><span class="role-label">Rôle</span>{{ rl.role_fr }}</span>
+  <span lang="en" hidden><span class="role-label">Role</span>{{ rl.role_en | default: rl.role_fr }}</span>
+</p>
+{%- endif -%}
