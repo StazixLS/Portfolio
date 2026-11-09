@@ -8,6 +8,8 @@ subtitle_fr: ""
 subtitle_en: ""
 summary_fr: "Plus d'infos bientôt."
 summary_en: "More to come."
+role_fr: "Dev IA"
+role_en: "AI dev"
 tags: []
 link: ""
 image: ""
