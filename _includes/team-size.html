@@ -1,0 +1,18 @@
+{%- comment -%}
+  Taille de l'équipe (champ facultatif team_size) : 1 = Solo, 2 = Binôme, 3 et plus = Équipe de N.
+  Paramètres : project, cls (classe CSS du conteneur).
+{%- endcomment -%}
+{%- if include.project.team_size -%}
+{%- assign ts_n = include.project.team_size | plus: 0 -%}
+{%- if ts_n > 0 -%}
+<span class="{{ include.cls }} team-size">
+  {%- if ts_n == 1 -%}
+  <span lang="fr">Solo</span><span lang="en" hidden>Solo</span>
+  {%- elsif ts_n == 2 -%}
+  <span lang="fr">Binôme</span><span lang="en" hidden>Pair</span>
+  {%- else -%}
+  <span lang="fr">Équipe de {{ ts_n }}</span><span lang="en" hidden>Team of {{ ts_n }}</span>
+  {%- endif -%}
+</span>
+{%- endif -%}
+{%- endif -%}

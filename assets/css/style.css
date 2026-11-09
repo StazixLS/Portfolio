@@ -329,6 +329,8 @@ a.tab:hover { color: var(--text); background: rgba(255, 255, 255, 0.02); }
 .meta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
 .card-meta { margin: 0 0 12px; }
 .card-dates { font-family: var(--font-mono); font-size: 12px; color: var(--subtle); }
+/* "Binôme" and friends sit before the dates, separated by a dot when dates follow. */
+.team-size:not(:last-child)::after { content: "·"; margin-left: 12px; color: var(--muted); }
 .card-subtitle { color: var(--foam); font-size: 13.5px; margin: 0 0 8px; }
 .card-summary { color: var(--subtle); font-size: 14px; margin: 0 0 16px; }
 

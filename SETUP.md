@@ -61,11 +61,14 @@ rien changer à ta config ni passer par un hébergement externe. Le site est à
 - `duration_fr` / `duration_en` (facultatif): une durée écrite à la main, affichée après les dates.
   Ex: `duration_fr: "1 semaine"` / `duration_en: "1 week"` → "2 - 8 mars 2026 · 1 semaine"
 - `project_type`: un des types définis dans `_data/project_types.yml` : `pro` (rose), `student`
-  (bleu-vert), `personal` (or), `gamejam` (violet) et `team` (pêche, "Projet d'équipe", pour un
-  projet fait à plusieurs en dehors d'un cadre client ou scolaire). Affiché en pastille colorée
+  (bleu-vert), `personal` (or), `gamejam` (violet) et `course` (pêche, "Projet de cours", pour un
+  projet fait en cours : seul, en binôme ou en petite équipe). `student` est réservé aux gros
+  projets menés avec d'autres étudiants (Nelli the Seer, La Poste). Affiché en pastille colorée
   à côté des dates. Pour un nouveau type, il suffit d'ajouter une entrée dans ce fichier
   (`color` = `rose`, `foam`, `gold`, `iris` ou `peach`), sans toucher au code. "En cours" n'a pas
   besoin de type : une `end_date` vide affiche déjà "Présent"
+- `team_size` (facultatif): le nombre de personnes sur le projet, affiché avant les dates :
+  `1` → "Solo", `2` → "Binôme", `5` → "Équipe de 5". Sans ce champ, rien n'est affiché
 - `title_fr` / `title_en`, `subtitle_fr` / `subtitle_en`
 - `summary_fr` / `summary_en`: UNE phrase courte, affichée sur la carte de la page d'accueil
 - `description_fr` / `description_en`: le texte complet, affiché sur la page dédiée du projet

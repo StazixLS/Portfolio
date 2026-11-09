@@ -14,7 +14,7 @@ gamejam:
   fr: "Game Jam"
   en: "Game Jam"
   color: iris
-team:
-  fr: "Projet d'équipe"
-  en: "Team project"
+course:
+  fr: "Projet de cours"
+  en: "Course project"
   color: peach
