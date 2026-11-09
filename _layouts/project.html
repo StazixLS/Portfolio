@@ -22,6 +22,8 @@ layout: default
   <div class="project-hero-media project-hero-media-embed" style="view-transition-name: card-media-{{ vt_slug }};">
     <iframe src="{{ page.video_embed }}" title="{{ page.title_fr }}" loading="lazy" allowfullscreen></iframe>
   </div>
+  {% else %}
+  {% include cover-initials.html project=page base="project-hero-media" %}
   {% endif %}
   {% endunless %}
 

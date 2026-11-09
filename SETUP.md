@@ -76,6 +76,8 @@ rien changer à ta config ni passer par un hébergement externe. Le site est à
 - `link`: lien externe optionnel (Steam, page du studio, itch.io...), affiché en plus du lien interne
 - `image` / `video` / `video_embed`: média principal, affiché en haut de la carte ET en haut de
   la page dédiée. Ne remplis qu'un seul des trois
+  Si les trois sont vides, le projet affiche ses initiales façon Discord (première lettre de chaque
+  mot du titre : « Nelli the Seer » donne « NtS », 4 au maximum) sur la couleur de son type de projet
 - `favicon`: icône de l'onglet du navigateur pour la page de ce projet uniquement (chemin vers
   une image dans `assets/`, ex: `/assets/projects/mon-jeu/icon.png`). Laisse `favicon: ""` (ou un
   chemin qui n'existe pas) pour utiliser ta photo de profil GitHub à la place — voir "Photo de

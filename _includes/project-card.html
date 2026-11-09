@@ -13,6 +13,8 @@
   <div class="card-media card-media-live card-media-embed" style="view-transition-name: card-media-{{ vt_slug }};">
     <iframe src="{{ p.video_embed }}" title="{{ p.title_fr }}" loading="lazy" allowfullscreen></iframe>
   </div>
+  {% else %}
+  {% include cover-initials.html project=p base="card-media" %}
   {% endif %}
 
   <div class="card-body">

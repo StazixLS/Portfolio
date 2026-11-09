@@ -1,0 +1,15 @@
+{%- comment -%}
+  Couverture de remplacement quand un projet n'a ni image, ni vidéo : ses initiales
+  sur la couleur de son type de projet, comme une icône de serveur Discord.
+  Paramètres : project=<projet>, base=<classe du conteneur : card-media ou project-hero-media>.
+{%- endcomment -%}
+{%- assign p = include.project -%}
+{%- assign base = include.base -%}
+{%- assign ptype = site.data.project_types[p.project_type] -%}
+{%- assign cover_color = ptype.color | default: "neutral" -%}
+{%- assign vt_slug = p.title_fr | slugify -%}
+{%- assign title_en = p.title_en | default: p.title_fr -%}
+<div class="{{ base }} cover-initials cover-{{ cover_color }}" style="view-transition-name: card-media-{{ vt_slug }};" aria-hidden="true">
+  <span class="cover-text" lang="fr">{% include project-initials.html title=p.title_fr %}</span>
+  <span class="cover-text" lang="en" hidden>{% include project-initials.html title=title_en %}</span>
+</div>

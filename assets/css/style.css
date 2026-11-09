@@ -293,6 +293,33 @@ a.tab:hover { color: var(--text); background: rgba(255, 255, 255, 0.02); }
   aspect-ratio: 16 / 9;
   object-fit: cover;
 }
+/* No cover: the project's initials on its type color, like a Discord server icon. */
+.cover-initials {
+  --cover-soft: var(--overlay);
+  --cover-ink: var(--subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 16 / 9;
+  background: linear-gradient(var(--cover-soft), var(--cover-soft)), var(--surface);
+  color: var(--cover-ink);
+  user-select: none;
+}
+.cover-text {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: clamp(44px, 8vw, 72px);
+  letter-spacing: -0.02em;
+  line-height: 1;
+  white-space: nowrap;
+}
+.cover-rose  { --cover-soft: var(--rose-soft);  --cover-ink: var(--rose); }
+.cover-foam  { --cover-soft: var(--foam-soft);  --cover-ink: var(--foam); }
+.cover-gold  { --cover-soft: var(--gold-soft);  --cover-ink: var(--gold); }
+.cover-iris  { --cover-soft: var(--iris-soft);  --cover-ink: var(--iris); }
+.cover-peach { --cover-soft: var(--peach-soft); --cover-ink: var(--peach); }
+.cover-ok    { --cover-soft: var(--ok-soft);    --cover-ink: var(--ok); }
+.project-hero-media.cover-initials { aspect-ratio: auto; height: 200px; }
 .card-media-live { position: relative; z-index: 2; }
 .card-media-embed { aspect-ratio: 16 / 9; }
 .card-media-embed iframe { width: 100%; height: 100%; border: 0; display: block; }
@@ -359,6 +386,7 @@ a.tab:hover { color: var(--text); background: rgba(255, 255, 255, 0.02); }
 .card-soon { grid-column: 1 / -1; flex-direction: row; border-style: dashed; }
 .card-soon .card-media { flex: 0 0 280px; border-bottom: none; border-right: 1px solid var(--border); }
 .card-soon .card-media img { height: 100%; opacity: 0.55; }
+.card-soon .card-media.cover-initials { aspect-ratio: auto; min-height: 140px; opacity: 0.7; }
 
 /* Profile: prose on the left, a Properties panel (Visual Studio style) on the right */
 .profile-layout {

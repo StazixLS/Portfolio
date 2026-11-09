@@ -1,0 +1,11 @@
+{%- comment -%} Initiales façon Discord : la première lettre de chaque mot du titre ("Nelli the Seer" donne "NtS"), 4 au maximum. Paramètre : title. {%- endcomment -%}
+{%- assign ini = "" -%}
+{%- assign words = include.title | split: " " -%}
+{%- for w in words -%}
+  {%- assign c = w | slice: 0 -%}
+  {%- unless "-&+/|:–—·." contains c -%}
+    {%- assign ini = ini | append: c -%}
+  {%- endunless -%}
+{%- endfor -%}
+{%- if ini == "" -%}{%- assign ini = include.title | slice: 0 -%}{%- endif -%}
+{{- ini | slice: 0, 4 -}}
