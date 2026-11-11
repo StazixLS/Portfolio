@@ -39,7 +39,7 @@
       {% assign icon_url = page.favicon | absolute_url %}
     {% else %}
       {% comment %} Pas de favicon : l'icône à initiales générée par tools/make_initials_icons.py. {% endcomment %}
-      {% assign initials_icon = "/assets/projects/_initials/" | append: page.slug | append: ".png" %}
+      {% assign initials_icon = "/assets/projects/initials/" | append: page.slug | append: ".png" %}
       {% for f in site.static_files %}
         {% if f.path == initials_icon %}
           {% assign favicon_valid = true %}

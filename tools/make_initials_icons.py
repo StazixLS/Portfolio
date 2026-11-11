@@ -4,7 +4,7 @@ Même rendu que la couverture à initiales du site : les initiales du projet sur
 couleur de son type. L'icône sert d'onglet (favicon) et d'aperçu de lien (og:image).
 
 Usage : python3 tools/make_initials_icons.py
-Sortie : assets/projects/_initials/<nom du fichier projet>.png
+Sortie : assets/projects/initials/<nom du fichier projet>.png
 Dépendances : Pillow, PyYAML
 """
 from pathlib import Path
@@ -13,7 +13,7 @@ import yaml
 from PIL import Image, ImageDraw, ImageFont
 
 ROOT = Path(__file__).resolve().parent.parent
-OUT = ROOT / "assets/projects/_initials"
+OUT = ROOT / "assets/projects/initials"
 FONT = ROOT / "tools/fonts/JetBrainsMono-Bold.ttf"
 SIZE = 256
 RADIUS = 56  # coins arrondis, transparents autour
