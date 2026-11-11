@@ -37,6 +37,15 @@
     {% endif %}
     {% if favicon_valid %}
       {% assign icon_url = page.favicon | absolute_url %}
+    {% else %}
+      {% comment %} Pas de favicon : l'icône à initiales générée par tools/make_initials_icons.py. {% endcomment %}
+      {% assign initials_icon = "/assets/projects/_initials/" | append: page.slug | append: ".png" %}
+      {% for f in site.static_files %}
+        {% if f.path == initials_icon %}
+          {% assign favicon_valid = true %}
+          {% assign icon_url = initials_icon | absolute_url %}
+        {% endif %}
+      {% endfor %}
     {% endif %}
   {% endif %}
   {% if page.url == "/404.html" %}
@@ -47,7 +56,7 @@
   {% assign share_image = site.avatar %}
   {% if page.layout == "project" %}
     {% if page.summary_fr and page.summary_fr != "" and page.locked != true %}{% assign doc_desc = page.summary_fr %}{% endif %}
-    {% comment %} Link previews use the project's icon (favicon), not its banner; no icon falls back to the avatar. {% endcomment %}
+    {% comment %} Link previews use the project's icon (favicon, or else its initials icon), not its banner. {% endcomment %}
     {% if favicon_valid %}{% assign share_image = icon_url %}{% endif %}
   {% endif %}
   <meta name="description" content="{{ doc_desc | escape }}">

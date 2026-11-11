@@ -139,6 +139,7 @@ def build(baseurl=""):
         fm, _ = split_front(f.read_text(encoding="utf-8"))
         fm = dict(fm)
         fm["url"] = f"/projects/{f.stem}/"
+        fm["slug"] = f.stem
         fm["layout"] = "project"
         projects.append(fm)
 
