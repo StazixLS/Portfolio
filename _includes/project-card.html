@@ -56,8 +56,8 @@
       {% endif %}
       {% if p.link and p.link != "" %}
       <a class="btn btn-line btn-sm card-link-ext" href="{{ p.link }}" target="_blank" rel="noopener">
-        <span lang="fr">Voir en ligne ↗</span>
-        <span lang="en" hidden>View live ↗</span>
+        <span lang="fr">{{ p.link_label_fr | default: "Voir en ligne" }} ↗</span>
+        <span lang="en" hidden>{{ p.link_label_en | default: "View live" }} ↗</span>
       </a>
       {% endif %}
     </div>

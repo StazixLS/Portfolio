@@ -56,8 +56,8 @@ layout: default
     {% if page.link and page.link != "" and page.locked != true %}
     <div class="project-actions">
       <a class="btn btn-line" href="{{ page.link }}" target="_blank" rel="noopener">
-        <span lang="fr">Voir le projet en ligne ↗</span>
-        <span lang="en" hidden>View live project ↗</span>
+        <span lang="fr">{{ page.link_label_fr | default: "Voir le projet en ligne" }} ↗</span>
+        <span lang="en" hidden>{{ page.link_label_en | default: "View live project" }} ↗</span>
       </a>
     </div>
     {% endif %}

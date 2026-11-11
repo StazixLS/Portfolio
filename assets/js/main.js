@@ -27,6 +27,16 @@ document.addEventListener('DOMContentLoaded', () => {
   // On a project page the "open file" tab is the last one: keep it in view on narrow screens.
   const tabBar = document.querySelector('.tabs');
   if (tabBar && tabBar.querySelector('.tab-file')) tabBar.scrollLeft = tabBar.scrollWidth;
+  if (tabBar) {
+    const markOverflow = () => {
+      const max = tabBar.scrollWidth - tabBar.clientWidth;
+      tabBar.classList.toggle('more-left', tabBar.scrollLeft > 4);
+      tabBar.classList.toggle('more-right', tabBar.scrollLeft < max - 4);
+    };
+    tabBar.addEventListener('scroll', markOverflow, { passive: true });
+    window.addEventListener('resize', markOverflow);
+    markOverflow();
+  }
 
   /* ---------- Project filter ----------
      Chips are rendered by Jekyll from the projects' own types and tags, so

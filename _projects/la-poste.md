@@ -11,7 +11,9 @@ summary_en: "Two VR training modules for La Poste, a real client project run thr
 role_fr: "GPE : mini-jeu du cadenas, interactions du Module 1 et système de Halo"
 role_en: "Gameplay: padlock mini-game, Module 1 interactions and the Halo highlight system"
 tags: ["Unity", "C#", "VR"]
-link: "https://www.linkedin.com/posts/santaezsaezcuritaeztravail-laposte-ugcPost-7447257936340455425-iHXG/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAGP3VwcBC5j46txAf7VX7F60ZpaOPMh-gRc"
+link: "https://www.linkedin.com/posts/santaezsaezcuritaeztravail-laposte-ugcPost-7447257936340455425-iHXG/"
+link_label_fr: "Voir le post LinkedIn"
+link_label_en: "View the LinkedIn post"
 image: "/assets/projects/La Poste/Cover.svg"
 favicon: "/assets/projects/La Poste/Favicon.png"
 video: ""
