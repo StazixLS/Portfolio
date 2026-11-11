@@ -8,7 +8,7 @@ subtitle_fr: "Projet perso : jeu multijoueur"
 subtitle_en: "Personal project: multiplayer game"
 summary_fr: "all game"
 summary_en: "all game"
-tags: ["UE5", "C++", "Multiplayer"]
+tags: ["Unreal Engine 5", "C++", "Multiplayer"]
 link: ""
 image: "/assets/projects/OProtocol/SplashScreen.png"
 favicon: "/assets/projects/OProtocol/Flavicon.png"
