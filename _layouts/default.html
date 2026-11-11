@@ -12,21 +12,6 @@
     {% assign doc_title = page.title | append: " | " | append: site_name %}
   {% endif %}
   <title>{{ doc_title }}</title>
-  {% assign doc_desc = site.description %}
-  {% assign share_image = site.avatar %}
-  {% if page.layout == "project" %}
-    {% if page.summary_fr and page.summary_fr != "" and page.locked != true %}{% assign doc_desc = page.summary_fr %}{% endif %}
-    {% comment %} Link previews do not render SVG, so an SVG cover falls back to the avatar. {% endcomment %}
-    {% if page.image and page.image != "" %}{% unless page.image contains ".svg" %}{% assign share_image = page.image | absolute_url %}{% endunless %}{% endif %}
-  {% endif %}
-  <meta name="description" content="{{ doc_desc | escape }}">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="{{ site_name | escape }}">
-  <meta property="og:title" content="{{ doc_title | escape }}">
-  <meta property="og:description" content="{{ doc_desc | escape }}">
-  <meta property="og:url" content="{{ page.url | absolute_url }}">
-  {% if share_image and share_image != "" %}<meta property="og:image" content="{{ share_image | replace: ' ', '%20' }}">{% endif %}
-  <meta name="twitter:card" content="summary">
   {% comment %}
     Favicon: GitHub avatar site-wide, shown as a circle. On a project page,
     page.favicon overrides it if set and valid (checked against
@@ -58,6 +43,21 @@
     {% assign icon_url = "/assets/missing-texture.png" | absolute_url %}
     {% assign icon_shape = "none" %}
   {% endif %}
+  {% assign doc_desc = site.description %}
+  {% assign share_image = site.avatar %}
+  {% if page.layout == "project" %}
+    {% if page.summary_fr and page.summary_fr != "" and page.locked != true %}{% assign doc_desc = page.summary_fr %}{% endif %}
+    {% comment %} Link previews use the project's icon (favicon), not its banner; no icon falls back to the avatar. {% endcomment %}
+    {% if favicon_valid %}{% assign share_image = icon_url %}{% endif %}
+  {% endif %}
+  <meta name="description" content="{{ doc_desc | escape }}">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="{{ site_name | escape }}">
+  <meta property="og:title" content="{{ doc_title | escape }}">
+  <meta property="og:description" content="{{ doc_desc | escape }}">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  {% if share_image and share_image != "" %}<meta property="og:image" content="{{ share_image | replace: ' ', '%20' }}">{% endif %}
+  <meta name="twitter:card" content="summary">
   {% if icon_url and icon_url != "" %}
   <link rel="icon" id="js-favicon" href="{{ icon_url }}">
   {% if icon_shape != "none" %}
