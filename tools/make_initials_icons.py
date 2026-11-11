@@ -16,6 +16,7 @@ ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "assets/projects/_initials"
 FONT = ROOT / "tools/fonts/JetBrainsMono-Bold.ttf"
 SIZE = 256
+RADIUS = 56  # coins arrondis, transparents autour
 
 SURFACE = (31, 29, 46)
 COLORS = {  # mêmes valeurs que les variables CSS --rose, --foam...
@@ -43,12 +44,21 @@ def blend(c, a=0.12):
 
 
 def render(text, color):
-    img = Image.new("RGB", (SIZE, SIZE), blend(color))
+    img = Image.new("RGBA", (SIZE, SIZE), (0, 0, 0, 0))
     draw = ImageDraw.Draw(img)
+    draw.rounded_rectangle((0, 0, SIZE - 1, SIZE - 1), radius=RADIUS, fill=blend(color))
     size = {1: 150, 2: 128, 3: 96, 4: 74}.get(len(text), 74)
     font = ImageFont.truetype(str(FONT), size)
     draw.text((SIZE / 2, SIZE / 2), text, font=font, fill=color, anchor="mm")
     return img
+
+
+def same_pixels(path, img):
+    try:
+        old = Image.open(path).convert("RGBA")
+    except OSError:
+        return False
+    return old.size == img.size and old.tobytes() == img.tobytes()
 
 
 def main():
@@ -61,7 +71,11 @@ def main():
             continue
         color = COLORS.get((types.get(fm.get("project_type")) or {}).get("color"), COLORS["neutral"])
         out = OUT / f"{md.stem}.png"
-        render(initials(fm), color).save(out, optimize=True)
+        img = render(initials(fm), color)
+        # Réécrit seulement si l'image change : évite des commits pour rien
+        # quand deux versions de Pillow encodent le même PNG différemment.
+        if not (out.exists() and same_pixels(out, img)):
+            img.save(out, optimize=True)
         wanted.add(out.name)
         print(f"{md.stem}: {initials(fm)}")
     for old in OUT.glob("*.png"):  # projets supprimés ou qui ont reçu un vrai favicon
