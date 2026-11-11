@@ -106,7 +106,9 @@
   {% endif %}
   {% endif %}
   <link rel="stylesheet" href="{{ '/assets/css/fonts.css' | relative_url }}">
-  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  {% comment %} The build time in the URL makes browsers fetch the new CSS/JS after each deploy instead of reusing a cached copy. {% endcomment %}
+  {% assign asset_v = site.time | date: "%Y%m%d%H%M%S" %}
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}?v={{ asset_v }}">
 </head>
 <body>
   <div class="editor">
@@ -117,6 +119,6 @@
     </main>
     {% include footer.html %}
   </div>
-  <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+  <script src="{{ '/assets/js/main.js' | relative_url }}?v={{ asset_v }}"></script>
 </body>
 </html>
