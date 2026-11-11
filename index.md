@@ -115,8 +115,8 @@ title: Accueil
           <span lang="en" hidden>what I'd like to do</span>
         </h3>
         <p class="profile-text">
-          <span lang="fr">Je veux travailler comme programmeur gameplay / outils dans un studio. Deux sujets que j'ai envie de creuser : la réalité virtuelle, et l'IA dans les outils de production.</span>
-          <span lang="en" hidden>I want to work as a gameplay/tools programmer in a studio. Two things I want to dig into: virtual reality, and AI in production tooling.</span>
+          <span lang="fr">Je veux travailler comme programmeur gameplay / outils dans un studio. Un sujet que j'ai envie de creuser : l'IA dans les outils de production.</span>
+          <span lang="en" hidden>I want to work as a gameplay/tools programmer in a studio. One thing I want to dig into: AI in production tooling.</span>
         </p>
       </div>
     </div>
@@ -145,8 +145,8 @@ title: Accueil
         <div class="prop">
           <dt><span lang="fr">Intérêts</span><span lang="en" hidden>Interests</span></dt>
           <dd>
-            <span lang="fr">Réalité virtuelle, IA dans les outils de production</span>
-            <span lang="en" hidden>Virtual reality, AI in production tooling</span>
+            <span lang="fr">IA dans les outils de production</span>
+            <span lang="en" hidden>AI in production tooling</span>
           </dd>
         </div>
         <div class="prop">
