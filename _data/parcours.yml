@@ -12,8 +12,8 @@
   kind_fr: "Formation"
   kind_en: "Training"
   place: "Montferrier-sur-Lez"
-  period_fr: "2024 - Présent"
-  period_en: "2024 - Present"
+  period_fr: "2024 – 2027"
+  period_en: "2024 – 2027"
   description_fr: "Mon école. C'est là que j'ai travaillé sur Nelli the Seer, un projet étudiant sorti sur Steam, et sur le projet client La Poste avec 24 étudiants."
   description_en: "My school. It's where I worked on Nelli the Seer, a student project released on Steam, and on the La Poste client project with 24 students."
   projects: ["nelli-the-seer", "la-poste"]

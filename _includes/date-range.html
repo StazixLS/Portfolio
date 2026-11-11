@@ -1,10 +1,10 @@
 {%- comment -%}
   Période d'un projet. Paramètres : start, end (vide = en cours), lang (fr / en).
   Dates entre guillemets dans le front matter, au mois ("2026-03") ou au jour ("2026-03-02") :
-    mois / mois        Janvier 2026 - Mars 2026
+    mois / mois        Janvier 2026 – Mars 2026
     même mois          Mars 2026
-    jour / jour        2 - 8 mars 2026   (ou 28 fév - 5 mars 2026, ou un seul jour)
-    pas de fin         Mars 2026 - Présent
+    jour / jour        2 – 8 mars 2026   (ou 28 fév – 5 mars 2026, ou un seul jour)
+    pas de fin         Mars 2026 – Présent
 {%- endcomment -%}
 {%- assign lang = include.lang -%}
 {%- assign sp = include.start | split: "-" -%}
@@ -28,27 +28,27 @@
     {%- if has_end -%}{%- assign e_month = e_month | downcase -%}{%- endif -%}
   {%- endif -%}
   {%- if has_end == false -%}
-    {{ sd }} {{ s_month }} {{ sy }} - {{ now_text }}
+    {{ sd }} {{ s_month }} {{ sy }} – {{ now_text }}
   {%- elsif ep.size > 2 -%}
     {%- assign ed = ep[2] | plus: 0 -%}
     {%- if include.start == include.end -%}
       {{ sd }} {{ s_month }} {{ sy }}
     {%- elsif sy == ey and sm == em -%}
-      {{ sd }} - {{ ed }} {{ s_month }} {{ sy }}
+      {{ sd }} – {{ ed }} {{ s_month }} {{ sy }}
     {%- elsif sy == ey -%}
-      {{ sd }} {{ s_month }} - {{ ed }} {{ e_month }} {{ sy }}
+      {{ sd }} {{ s_month }} – {{ ed }} {{ e_month }} {{ sy }}
     {%- else -%}
-      {{ sd }} {{ s_month }} {{ sy }} - {{ ed }} {{ e_month }} {{ ey }}
+      {{ sd }} {{ s_month }} {{ sy }} – {{ ed }} {{ e_month }} {{ ey }}
     {%- endif -%}
   {%- else -%}
-    {{ sd }} {{ s_month }} {{ sy }} - {{ e_month }} {{ ey }}
+    {{ sd }} {{ s_month }} {{ sy }} – {{ e_month }} {{ ey }}
   {%- endif -%}
 {%- else -%}
   {%- if has_end == false -%}
-    {{ s_month }} {{ sy }} - {{ now_text }}
+    {{ s_month }} {{ sy }} – {{ now_text }}
   {%- elsif sy == ey and sm == em -%}
     {{ s_month }} {{ sy }}
   {%- else -%}
-    {{ s_month }} {{ sy }} - {{ e_month }} {{ ey }}
+    {{ s_month }} {{ sy }} – {{ e_month }} {{ ey }}
   {%- endif -%}
 {%- endif -%}

@@ -61,19 +61,19 @@ description_fr: |
 
   ## Défis techniques
 
-  Trois systèmes m'ont donné le plus de fil à retordre : le focus system (à quel widget la manette/le clavier "s'accroche", [aperçu ici](#gallery-5)), le menu pause, et la détection + rebind clavier ↔ manette. Ce trio a dû être solidifié une seconde fois lors de la migration d'Unreal Engine 5.4.4 (v1.0.0) vers 5.6.1 (v1.1.0), qui a cassé une partie du système existant. D'où les trois versions du menu de remapping ci-dessus.
+  Trois systèmes m'ont donné le plus de fil à retordre : le focus system (à quel widget la manette/le clavier "s'accroche", [à voir dans la galerie](#gallery-5)), le menu pause, et la détection + rebind clavier ↔ manette. Ce trio a dû être solidifié une seconde fois lors de la migration d'Unreal Engine 5.4.4 (v1.0.0) vers 5.6.1 (v1.1.0), qui a cassé une partie du système existant. D'où les trois versions du menu de remapping ci-dessus.
 
   ## Ce dont je suis le plus fier
 
-  La transition du menu pause entre deux niveaux : j'ai éliminé le petit "pop" de l'écran de chargement entre deux changements de niveau, pour un résultat fluide et sans accroc visible ([aperçu ici](#gallery-2)).
+  La transition du menu pause entre deux niveaux : j'ai éliminé le petit "pop" de l'écran de chargement entre deux changements de niveau, pour un résultat fluide et sans accroc visible ([à voir dans la galerie](#gallery-2)).
 
   ## Après la sortie
 
-  Le travail ne s'est pas arrêté à la sortie Steam. J'ai continué à corriger des bugs bien après la fin officielle du projet : deux crashs majeurs (dont un provoqué par la vision plate, [l'un d'eux ici](#gallery-1)), des correctifs côté 3C et GPE (des zones auxquelles je n'avais pas touché en production), et la réadaptation du système de rebind/détection clavier-manette après la migration vers UE 5.6.1.
+  Le travail ne s'est pas arrêté à la sortie Steam. J'ai continué à corriger des bugs bien après la fin officielle du projet : deux crashs majeurs (dont un provoqué par la vision plate, [l'un d'eux dans la galerie](#gallery-1)), des correctifs côté 3C et GPE (des zones auxquelles je n'avais pas touché en production), et la réadaptation du système de rebind/détection clavier-manette après la migration vers UE 5.6.1.
 
   ## Ce que j'en ai retenu
 
-  Mon premier vrai projet avec Perforce (P4V), donc mon premier vrai apprentissage du travail en versioning sur un gros projet d'équipe. Côté technique : mieux utiliser les Blueprints, et ne pas sur-architecturer. Un système "trop réutilisable" peut surcharger un Blueprint pour un gain quasi nul.
+  Mon premier projet avec Perforce (P4V), donc mon premier apprentissage du travail en versioning sur un gros projet d'équipe. Côté technique : mieux utiliser les Blueprints, et ne pas sur-architecturer. Un système "trop réutilisable" peut surcharger un Blueprint pour un gain quasi nul.
 description_en: |
   Nelli The Seer is a student project from Objectif 3D: a third-person action-adventure blending platforming ([preview](#gallery-3)) and memory-based puzzles, released for free on Steam on July 8, 2025 (89% positive reviews, 20,000+ downloads).
 
@@ -113,17 +113,17 @@ description_en: |
 
   ## Technical challenges
 
-  Three systems gave me the most trouble: the focus system (which widget the gamepad/keyboard is "attached" to, [preview here](#gallery-5)), the pause menu, and keyboard-to-gamepad detection + rebinding. This trio had to be reinforced a second time during the migration from Unreal Engine 5.4.4 (v1.0.0) to 5.6.1 (v1.1.0), which broke part of the existing system, hence the three versions of the remapping menu above.
+  Three systems gave me the most trouble: the focus system (which widget the gamepad/keyboard is "attached" to, [see it in the gallery](#gallery-5)), the pause menu, and keyboard-to-gamepad detection + rebinding. This trio had to be reinforced a second time during the migration from Unreal Engine 5.4.4 (v1.0.0) to 5.6.1 (v1.1.0), which broke part of the existing system, hence the three versions of the remapping menu above.
 
   ## What I'm most proud of
 
-  The pause menu transition between levels: I eliminated the small loading-screen "pop" that used to appear between level changes, for a smooth result with no visible hitch ([preview here](#gallery-2)).
+  The pause menu transition between levels: I eliminated the small loading-screen "pop" that used to appear between level changes, for a smooth result with no visible hitch ([see it in the gallery](#gallery-2)).
 
   ## After launch
 
-  The work didn't stop at the Steam release. I kept fixing bugs well after the project's official end: two major crashes (one of them caused by the vision plate, [one of them here](#gallery-1)), fixes on the 3C and GPE side (areas I hadn't touched during production), and re-adapting the rebind/keyboard-gamepad detection system after the UE 5.6.1 migration.
+  The work didn't stop at the Steam release. I kept fixing bugs well after the project's official end: two major crashes (one of them caused by the vision plate, [one of them in the gallery](#gallery-1)), fixes on the 3C and GPE side (areas I hadn't touched during production), and re-adapting the rebind/keyboard-gamepad detection system after the UE 5.6.1 migration.
 
   ## What I took away from it
 
-  My first real project using Perforce (P4V), so my first real experience with version control on a large team project. On the technical side: using Blueprints more effectively, and not over-architecting. A system that's "too reusable" can overload a Blueprint for almost no gain.
+  My first project using Perforce (P4V), so my first experience with version control on a large team project. On the technical side: using Blueprints more effectively, and not over-architecting. A system that's "too reusable" can overload a Blueprint for almost no gain.
 ---

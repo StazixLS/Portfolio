@@ -19,8 +19,8 @@ title: Accueil
         <span lang="en" hidden>&gt; Gameplay / AI / Tools Programmer</span>
       </p>
       <p class="hero-bio">
-        <span lang="fr">Développeur passionné par le jeu vidéo, je code en C++, C# et Python, et je navigue entre Unity, Unreal Engine et WPF selon les projets. J'aime particulièrement le gameplay et les outils qui simplifient le travail en équipe : transformer une idée en quelque chose de jouable, du prototype à la version finale.</span>
-        <span lang="en" hidden>I'm a game developer who codes in C++, C#, and Python, moving between Unity, Unreal Engine, and WPF depending on the project. I especially enjoy gameplay programming and building tools that make teamwork easier: turning an idea into something playable, from first prototype to final build.</span>
+        <span lang="fr">Je code en C++, C# et Python, sur Unity, Unreal Engine et WPF selon les projets. J'ai travaillé sur Nelli the Seer, sorti sur Steam, et sur deux modules de formation VR pour La Poste. Ce que je préfère : le gameplay, et les outils qui simplifient le travail en équipe.</span>
+        <span lang="en" hidden>I code in C++, C# and Python, on Unity, Unreal Engine and WPF depending on the project. I worked on Nelli the Seer, released on Steam, and on two VR training modules for La Poste. What I like most: gameplay, and tools that make teamwork easier.</span>
       </p>
       <div class="hero-actions">
         <a href="#projets" class="btn btn-fill">
@@ -93,8 +93,8 @@ title: Accueil
           <span lang="en" hidden>how it started</span>
         </h3>
         <p class="profile-text">
-          <span lang="fr">Avant de me lancer dans le développement de jeux vidéo, j'ai commencé par bidouiller des command blocks dans Minecraft, puis des datapacks. C'est là que j'ai pris goût à comprendre comment un système fonctionne sous le capot, et à vouloir le refaire moi-même. La suite s'est imposée naturellement : si j'aimais déjà bricoler des mécaniques dans un jeu, autant apprendre à en faire un vrai.</span>
-          <span lang="en" hidden>Before getting into game development, I started out tinkering with command blocks in Minecraft, then datapacks. That's where I got a taste for understanding how a system works under the hood, and wanting to rebuild it myself. The next step came naturally: if I already enjoyed tinkering with mechanics inside a game, I might as well learn to make one for real.</span>
+          <span lang="fr">J'ai commencé par bidouiller des command blocks dans Minecraft, puis des datapacks. C'est là que j'ai pris goût à comprendre comment un système fonctionne sous le capot, et à vouloir le refaire moi-même. Si j'aimais déjà bricoler des mécaniques dans un jeu, autant apprendre à en faire un.</span>
+          <span lang="en" hidden>I started out tinkering with command blocks in Minecraft, then datapacks. That's where I got a taste for understanding how a system works under the hood, and wanting to rebuild it myself. If I already enjoyed tinkering with mechanics inside a game, I might as well learn to make one.</span>
         </p>
       </div>
 
@@ -104,8 +104,8 @@ title: Accueil
           <span lang="en" hidden>what I learned</span>
         </h3>
         <p class="profile-text">
-          <span lang="fr">Nelli the Seer et La Poste m'ont surtout appris à travailler en équipe sur un vrai projet : versionner proprement avec Perforce et Git, documenter ce que je fais, et accepter qu'un outil n'a de valeur que si les autres s'en servent vraiment.</span>
-          <span lang="en" hidden>Nelli the Seer and La Poste mostly taught me how to work as part of a real team: versioning cleanly with Perforce and Git, documenting what I build, and accepting that a tool only has value if people actually use it.</span>
+          <span lang="fr">Nelli the Seer et La Poste m'ont surtout appris à travailler en équipe : versionner proprement avec Perforce et Git, documenter ce que je fais, et accepter qu'un outil n'a de valeur que si les autres s'en servent vraiment.</span>
+          <span lang="en" hidden>Nelli the Seer and La Poste mostly taught me how to work in a team: versioning cleanly with Perforce and Git, documenting what I build, and accepting that a tool only has value if people actually use it.</span>
         </p>
       </div>
 
@@ -115,8 +115,8 @@ title: Accueil
           <span lang="en" hidden>what I'd like to do</span>
         </h3>
         <p class="profile-text">
-          <span lang="fr">La suite, j'aimerais la construire comme programmeur gameplay / outils dans un studio, continuer à apprendre au contact d'autres développeurs, et creuser des sujets qui m'intéressent comme la réalité virtuelle et l'intégration de l'IA dans les outils de production.</span>
-          <span lang="en" hidden>Looking ahead, I'd like to keep building as a gameplay/tools programmer in a studio, keep learning alongside other developers, and dig deeper into things that interest me, like virtual reality and bringing AI into production tooling.</span>
+          <span lang="fr">Je veux travailler comme programmeur gameplay / outils dans un studio. Deux sujets que j'ai envie de creuser : la réalité virtuelle, et l'IA dans les outils de production.</span>
+          <span lang="en" hidden>I want to work as a gameplay/tools programmer in a studio. Two things I want to dig into: virtual reality, and AI in production tooling.</span>
         </p>
       </div>
     </div>
