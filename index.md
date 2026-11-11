@@ -42,12 +42,15 @@ title: Accueil
 </section>
 
 <section id="projets" class="pane">
-  <h2 class="pane-title">
-    <span lang="fr">Projets</span>
-    <span lang="en" hidden>Projects</span>
-  </h2>
+  <div class="pane-head">
+    <h2 class="pane-title">
+      <span lang="fr">Projets</span>
+      <span lang="en" hidden>Projects</span>
+    </h2>
+    {% include project-filter.html %}
+  </div>
 
-  <div class="grid">
+  <div class="grid" data-filter-grid>
     {% assign sorted_projects = site.projects | sort: "start_date" | reverse %}
     {% for project in sorted_projects %}{% unless project.locked %}
     {% include project-card.html project=project %}
@@ -56,6 +59,13 @@ title: Accueil
     {% include project-card.html project=project %}
     {% endif %}{% endfor %}
   </div>
+  <p class="filter-empty" data-filter-empty hidden>
+    <span lang="fr">Aucun projet ne correspond à ce filtre.</span>
+    <span lang="en" hidden>No project matches this filter.</span>
+    <button type="button" class="filter-reset" data-filter-reset>
+      <span lang="fr">Réinitialiser</span><span lang="en" hidden>Reset</span>
+    </button>
+  </p>
 </section>
 
 <section id="profile" class="pane">

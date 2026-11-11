@@ -1,0 +1,55 @@
+{%- comment -%}
+  Project filter (type + tags). Everything is derived from the projects
+  themselves: a type or a tag shows up here as soon as one project uses it,
+  nothing to maintain by hand. Types follow the order of
+  _data/project_types.yml, tags are sorted alphabetically. The whole block is
+  hidden until main.js turns it on, so nothing dead shows without JS.
+{%- endcomment -%}
+{%- capture all_tags -%}{%- for project in site.projects -%}{%- for tag in project.tags -%}{{ tag }}|{%- endfor -%}{%- endfor -%}{%- endcapture -%}
+{%- assign filter_tags = all_tags | split: "|" | uniq | sort_natural -%}
+{%- assign used_types = site.projects | map: "project_type" | uniq -%}
+{%- assign tag_palette = "rose,foam,gold,iris,peach,ok" | split: "," -%}
+<div class="filter" data-filter hidden>
+  <button type="button" class="btn btn-line btn-sm filter-toggle" aria-expanded="false" aria-controls="project-filter-panel">
+    <span lang="fr">Filtrer</span><span lang="en" hidden>Filter</span>
+    <span class="filter-count" data-filter-badge hidden></span>
+  </button>
+  <div class="filter-panel" id="project-filter-panel" hidden>
+    <div class="filter-head">
+      <span class="filter-file">Filter.json</span>
+      <button type="button" class="filter-reset" data-filter-reset disabled>
+        <span lang="fr">Réinitialiser</span><span lang="en" hidden>Reset</span>
+      </button>
+    </div>
+    <div class="filter-group">
+      <span class="filter-label">type</span>
+      <div class="filter-chips">
+        {%- for entry in site.data.project_types -%}
+        {%- assign type_key = entry[0] -%}
+        {%- if used_types contains type_key %}
+        <button type="button" class="filter-chip project-type project-type-{{ entry[1].color }}" data-filter-type="{{ type_key }}" aria-pressed="false">
+          <span lang="fr">{{ entry[1].fr }}</span><span lang="en" hidden>{{ entry[1].en }}</span>
+        </button>
+        {%- endif -%}
+        {%- endfor %}
+      </div>
+    </div>
+    {%- if filter_tags.size > 0 %}
+    <div class="filter-group">
+      <span class="filter-label">tags</span>
+      <div class="filter-chips">
+        {%- for tag in filter_tags -%}
+        {%- if tag == "" -%}{%- continue -%}{%- endif -%}
+        {%- assign tag_color = site.data.tags[tag] -%}
+        {%- unless tag_color -%}
+          {%- assign tag_idx = tag | size | modulo: 6 -%}
+          {%- assign tag_color = tag_palette[tag_idx] -%}
+        {%- endunless %}
+        <button type="button" class="filter-chip tag tag-{{ tag_color }}" data-filter-tag="{{ tag | escape }}" aria-pressed="false">{{ tag }}</button>
+        {%- endfor %}
+      </div>
+    </div>
+    {%- endif %}
+    <p class="filter-status" data-filter-status aria-live="polite"></p>
+  </div>
+</div>

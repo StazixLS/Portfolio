@@ -860,6 +860,46 @@ html.has-lightbox { overflow: hidden; }
 .comment { font-family: var(--font-mono); font-size: 12px; color: var(--subtle); }
 
 /* Accessibility */
+/* ---------- Project filter ---------- */
+.pane-head { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 32px; position: relative; }
+.pane-head .pane-title { margin-bottom: 0; }
+.filter-toggle { display: inline-flex; align-items: center; gap: 8px; }
+.filter-toggle[aria-expanded="true"] { border-color: var(--rose); }
+.filter-count {
+  min-width: 18px; padding: 0 5px; border-radius: 9px;
+  background: var(--rose); color: var(--bg);
+  font-size: 11px; font-weight: 700; line-height: 18px; text-align: center;
+}
+.filter-panel {
+  position: absolute; top: calc(100% + 8px); right: 0; z-index: 20;
+  width: min(420px, 100%);
+  padding: 0 16px 16px;
+  background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+}
+.filter-head {
+  display: flex; align-items: center; justify-content: space-between;
+  margin: 0 -16px 14px; padding: 10px 16px;
+  border-bottom: 1px solid var(--border);
+  font-family: var(--font-mono); font-size: 12px;
+}
+.filter-file { color: var(--subtle); }
+.filter-reset {
+  background: none; border: none; padding: 0; cursor: pointer;
+  font-family: var(--font-mono); font-size: 12px; color: var(--rose);
+  text-decoration: underline; text-underline-offset: 3px;
+}
+.filter-reset:disabled { color: var(--muted); text-decoration: none; cursor: default; }
+.filter-group + .filter-group { margin-top: 14px; }
+.filter-label { display: block; margin-bottom: 8px; font-family: var(--font-mono); font-size: 12px; color: var(--subtle); }
+.filter-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.filter-chip { border: 1px solid transparent; cursor: pointer; opacity: 0.6; transition: opacity 0.15s, border-color 0.15s; }
+.filter-chip:hover { opacity: 0.85; }
+.filter-chip[aria-pressed="true"] { opacity: 1; border-color: currentColor; }
+.filter-status { margin: 14px 0 0; font-family: var(--font-mono); font-size: 12px; color: var(--subtle); }
+.filter-empty { margin: 8px 0 0; font-family: var(--font-mono); font-size: 13px; color: var(--subtle); }
+.filter-empty .filter-reset { margin-left: 8px; font-size: 13px; }
+
 :focus-visible { outline: 2px solid var(--rose); outline-offset: 2px; }
 
 @media (prefers-reduced-motion: reduce) {

@@ -391,3 +391,7 @@ La racine `https://stazixls.github.io/` est tenue par un autre repo, `StazixLS.g
 contient que deux pages de redirection : la racine, `/portfolio/` (peu importe la casse) et les
 anciennes adresses sans préfixe (`/projects/...`) renvoient vers `/Portfolio/...`. Si tu renommes un
 jour ce repo-ci, mets à jour la constante `SITE` dans le `404.html` de `StazixLS.github.io`.
+
+## Filtre des projets
+
+Le bouton « Filtrer » de la section Projets se construit tout seul à partir des fiches : un type (`project_type`) ou un tag apparaît dans le filtre dès qu'un projet l'utilise, rien à déclarer ailleurs. Les types suivent l'ordre de `_data/project_types.yml`, les tags sont triés par ordre alphabétique. Deux tags écrits différemment (« UE5 » et « Unreal Engine 5 ») donnent deux entrées : garder une seule écriture par techno.

@@ -28,6 +28,69 @@ document.addEventListener('DOMContentLoaded', () => {
   const tabBar = document.querySelector('.tabs');
   if (tabBar && tabBar.querySelector('.tab-file')) tabBar.scrollLeft = tabBar.scrollWidth;
 
+  /* ---------- Project filter ----------
+     Chips are rendered by Jekyll from the projects' own types and tags, so
+     this only reads data-type / data-tags off the cards. Inside a group the
+     choices add up (Unity or Unreal); the two groups narrow each other
+     (student project and Unity). */
+  const filter = document.querySelector('[data-filter]');
+  const filterGrid = document.querySelector('[data-filter-grid]');
+  if (filter && filterGrid) {
+    const toggle = filter.querySelector('.filter-toggle');
+    const panel = filter.querySelector('.filter-panel');
+    const badge = filter.querySelector('[data-filter-badge]');
+    const status = filter.querySelector('[data-filter-status]');
+    const empty = document.querySelector('[data-filter-empty]');
+    const chips = Array.from(filter.querySelectorAll('.filter-chip'));
+    const resets = document.querySelectorAll('[data-filter-reset]');
+    const cards = Array.from(filterGrid.querySelectorAll('.card'));
+    filter.hidden = false;
+
+    const setOpen = (open) => {
+      panel.hidden = !open;
+      toggle.setAttribute('aria-expanded', String(open));
+    };
+
+    const apply = () => {
+      const picked = (attr) => chips
+        .filter((c) => c.hasAttribute(attr) && c.getAttribute('aria-pressed') === 'true')
+        .map((c) => c.getAttribute(attr));
+      const types = picked('data-filter-type');
+      const tags = picked('data-filter-tag');
+      let shown = 0;
+      cards.forEach((card) => {
+        const cardTags = (card.dataset.tags || '').split('|');
+        const ok = (!types.length || types.includes(card.dataset.type))
+          && (!tags.length || tags.some((t) => cardTags.includes(t)));
+        card.hidden = !ok;
+        if (ok) shown += 1;
+      });
+      const active = types.length + tags.length;
+      badge.hidden = !active;
+      badge.textContent = active;
+      resets.forEach((b) => { if (b.closest('[data-filter]')) b.disabled = !active; });
+      status.textContent = shown + ' / ' + cards.length;
+      if (empty) empty.hidden = shown > 0;
+    };
+
+    chips.forEach((chip) => chip.addEventListener('click', () => {
+      chip.setAttribute('aria-pressed', String(chip.getAttribute('aria-pressed') !== 'true'));
+      apply();
+    }));
+    resets.forEach((btn) => btn.addEventListener('click', () => {
+      chips.forEach((c) => c.setAttribute('aria-pressed', 'false'));
+      apply();
+    }));
+    toggle.addEventListener('click', () => setOpen(panel.hidden));
+    document.addEventListener('click', (e) => {
+      if (!panel.hidden && !filter.contains(e.target)) setOpen(false);
+    });
+    filter.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !panel.hidden) { setOpen(false); toggle.focus(); }
+    });
+    apply();
+  }
+
   /* ---------- Fake build in the Output panels ----------
      Contact = success, 404 = failure: log lines print one by one and each
      status spins briefly before settling on OK / FAILED. Everything stays in

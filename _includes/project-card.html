@@ -1,6 +1,6 @@
 {%- assign p = include.project -%}
 {%- assign vt_slug = p.title_fr | slugify -%}
-<article class="card {% if p.locked %}card-soon{% else %}card-clickable{% endif %}" id="project-{{ vt_slug }}">
+<article class="card {% if p.locked %}card-soon{% else %}card-clickable{% endif %}" id="project-{{ vt_slug }}" data-type="{{ p.project_type }}" data-tags="{{ p.tags | join: '|' | escape }}">
   {% if p.image and p.image != "" %}
   <div class="card-media" style="view-transition-name: card-media-{{ vt_slug }};">
     <img src="{{ p.image | relative_url }}" alt="" loading="lazy">
