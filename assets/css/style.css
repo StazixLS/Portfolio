@@ -910,6 +910,19 @@ html.has-lightbox { overflow: hidden; }
 }
 .filter-search input::placeholder { color: var(--muted); }
 .filter-status { margin: 14px 0 0; font-family: var(--font-mono); font-size: 12px; color: var(--subtle); }
+/* Touch screens: each family is one row you swipe sideways, so a long list
+   never pushes the panel down. With a mouse the chips wrap instead, because
+   sideways scrolling is awkward without a touchpad. */
+@media (hover: none) {
+  .filter-chips {
+    flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none;
+    margin-right: -16px; padding-right: 40px;
+    -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 40px), transparent);
+    mask-image: linear-gradient(to right, #000 calc(100% - 40px), transparent);
+  }
+  .filter-chips::-webkit-scrollbar { display: none; }
+  .filter-chip { flex: none; }
+}
 .filter-empty { margin: 8px 0 0; font-family: var(--font-mono); font-size: 13px; color: var(--subtle); }
 .filter-empty .filter-reset { margin-left: 8px; font-size: 13px; }
 
