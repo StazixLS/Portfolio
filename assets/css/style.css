@@ -902,13 +902,16 @@ html.has-lightbox { overflow: hidden; }
 .filter-chip[aria-pressed="true"] { opacity: 1; border-color: currentColor; }
 .filter-panel { max-height: min(70vh, 520px); overflow-y: auto; }
 .filter-head { position: sticky; top: 0; background: var(--surface); z-index: 1; }
-.filter-search { margin: 14px 0; }
+.filter-search { position: relative; margin: 14px 0; }
+.filter-search-icon { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--subtle); pointer-events: none; }
 .filter-search input {
-  width: 100%; padding: 8px 10px;
-  background: var(--bg); border: 1px solid var(--border); border-radius: 6px;
+  width: 100%; padding: 9px 12px 9px 36px;
+  background: var(--bg); border: 1px solid var(--border); border-radius: 999px;
   color: var(--text); font-family: var(--font-mono); font-size: 13px;
 }
-.filter-search input::placeholder { color: var(--muted); }
+.filter-search input::placeholder { color: var(--subtle); }
+.filter-search input:focus { outline: none; border-color: var(--rose); }
+.filter-search:focus-within .filter-search-icon { color: var(--rose); }
 .filter-status { margin: 14px 0 0; font-family: var(--font-mono); font-size: 12px; color: var(--subtle); }
 /* Touch screens: each family is one row you swipe sideways, so a long list
    never pushes the panel down. With a mouse the chips wrap instead, because

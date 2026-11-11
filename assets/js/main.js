@@ -440,6 +440,10 @@ document.addEventListener('DOMContentLoaded', () => {
       el.hidden = el.getAttribute('lang') !== lang;
     });
 
+    document.querySelectorAll('[data-placeholder-' + lang + ']').forEach(function (el) {
+      el.placeholder = el.getAttribute('data-placeholder-' + lang);
+    });
+
     document.querySelectorAll('.lang-btn').forEach(function (btn) {
       var active = btn.dataset.langBtn === lang;
       btn.classList.toggle('active', active);

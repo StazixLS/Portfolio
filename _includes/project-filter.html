@@ -37,7 +37,8 @@
     {%- if filter_tags.size > 0 %}
     {%- comment -%} The search box only earns its place once the list is long. {%- endcomment -%}
     <div class="filter-search"{% if filter_tags.size <= 12 %} hidden{% endif %}>
-      <input type="search" data-filter-search aria-label="Chercher un tag / Search a tag" placeholder="tag…" autocomplete="off">
+      <svg class="filter-search-icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input type="search" data-filter-search aria-label="Rechercher un tag / Search a tag" placeholder="Rechercher un tag…" data-placeholder-fr="Rechercher un tag…" data-placeholder-en="Search a tag…" autocomplete="off">
     </div>
     {%- capture known_tags -%}|{%- for family in site.data.tag_families -%}{%- for tag in family.tags -%}{{ tag }}|{%- endfor -%}{%- endfor -%}{%- endcapture -%}
     {%- for family in site.data.tag_families -%}
