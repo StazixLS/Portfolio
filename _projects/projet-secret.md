@@ -11,7 +11,7 @@ summary_fr: "Plus d'infos bientôt."
 summary_en: "More to come."
 role_fr: "Dev IA"
 role_en: "AI dev"
-tags: []
+tags: ["Unreal Engine 5", "C++"]
 link: ""
 image: ""
 video: ""
