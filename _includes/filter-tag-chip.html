@@ -1,0 +1,7 @@
+{%- assign chip_palette = "rose,foam,gold,iris,peach,ok" | split: "," -%}
+{%- assign chip_color = site.data.tags[include.tag] -%}
+{%- unless chip_color -%}
+  {%- assign chip_idx = include.tag | size | modulo: 6 -%}
+  {%- assign chip_color = chip_palette[chip_idx] -%}
+{%- endunless -%}
+<button type="button" class="filter-chip tag tag-{{ chip_color }}" data-filter-tag="{{ include.tag | escape }}" aria-pressed="false">{{ include.tag }}</button>

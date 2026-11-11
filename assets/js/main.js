@@ -91,6 +91,24 @@ document.addEventListener('DOMContentLoaded', () => {
       chips.forEach((c) => c.setAttribute('aria-pressed', 'false'));
       apply();
     }));
+    // Tag search: hides chips that don't match, and a family once it is empty.
+    // A selected chip always stays visible so it can be turned off.
+    const search = filter.querySelector('[data-filter-search]');
+    if (search) {
+      search.addEventListener('input', () => {
+        const q = search.value.trim().toLowerCase();
+        filter.querySelectorAll('[data-filter-family]').forEach((family) => {
+          let any = false;
+          family.querySelectorAll('.filter-chip').forEach((chip) => {
+            const keep = !q || chip.getAttribute('aria-pressed') === 'true'
+              || chip.dataset.filterTag.toLowerCase().includes(q);
+            chip.hidden = !keep;
+            if (keep) any = true;
+          });
+          family.hidden = !any;
+        });
+      });
+    }
     toggle.addEventListener('click', () => setOpen(panel.hidden));
     document.addEventListener('click', (e) => {
       if (!panel.hidden && !filter.contains(e.target)) setOpen(false);

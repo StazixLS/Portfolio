@@ -35,20 +35,33 @@
       </div>
     </div>
     {%- if filter_tags.size > 0 %}
-    <div class="filter-group">
-      <span class="filter-label">tags</span>
-      <div class="filter-chips">
-        {%- for tag in filter_tags -%}
-        {%- if tag == "" -%}{%- continue -%}{%- endif -%}
-        {%- assign tag_color = site.data.tags[tag] -%}
-        {%- unless tag_color -%}
-          {%- assign tag_idx = tag | size | modulo: 6 -%}
-          {%- assign tag_color = tag_palette[tag_idx] -%}
-        {%- endunless %}
-        <button type="button" class="filter-chip tag tag-{{ tag_color }}" data-filter-tag="{{ tag | escape }}" aria-pressed="false">{{ tag }}</button>
-        {%- endfor %}
-      </div>
+    {%- comment -%} The search box only earns its place once the list is long. {%- endcomment -%}
+    <div class="filter-search"{% if filter_tags.size <= 12 %} hidden{% endif %}>
+      <input type="search" data-filter-search aria-label="Chercher un tag / Search a tag" placeholder="tag…" autocomplete="off">
     </div>
+    {%- capture known_tags -%}|{%- for family in site.data.tag_families -%}{%- for tag in family.tags -%}{{ tag }}|{%- endfor -%}{%- endfor -%}{%- endcapture -%}
+    {%- for family in site.data.tag_families -%}
+    {%- capture family_chips -%}
+      {%- for tag in filter_tags -%}{%- if tag != "" and family.tags contains tag -%}{% include filter-tag-chip.html tag=tag %}{%- endif -%}{%- endfor -%}
+    {%- endcapture -%}
+    {%- assign family_test = family_chips | strip -%}
+    {%- if family_test != "" %}
+    <div class="filter-group" data-filter-family>
+      <span class="filter-label"><span lang="fr">{{ family.fr }}</span><span lang="en" hidden>{{ family.en }}</span></span>
+      <div class="filter-chips">{{ family_chips }}</div>
+    </div>
+    {%- endif -%}
+    {%- endfor -%}
+    {%- capture other_chips -%}
+      {%- for tag in filter_tags -%}{%- assign needle = "|" | append: tag | append: "|" -%}{%- if tag != "" -%}{%- unless known_tags contains needle -%}{% include filter-tag-chip.html tag=tag %}{%- endunless -%}{%- endif -%}{%- endfor -%}
+    {%- endcapture -%}
+    {%- assign other_test = other_chips | strip -%}
+    {%- if other_test != "" %}
+    <div class="filter-group" data-filter-family>
+      <span class="filter-label"><span lang="fr">autres</span><span lang="en" hidden>other</span></span>
+      <div class="filter-chips">{{ other_chips }}</div>
+    </div>
+    {%- endif -%}
     {%- endif %}
     <p class="filter-status" data-filter-status aria-live="polite"></p>
   </div>

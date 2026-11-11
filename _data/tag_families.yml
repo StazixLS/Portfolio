@@ -1,0 +1,16 @@
+# Familles de tags pour le filtre des projets. Un tag absent de ce fichier
+# reste utilisable tout de suite : il se range tout seul dans « Autres ».
+# Pour le classer, ajoute son nom (écrit exactement comme sur les fiches)
+# dans la liste d'une famille. L'ordre des familles ici est l'ordre affiché.
+
+- fr: "moteurs"
+  en: "engines"
+  tags: ["Unity", "Unreal Engine", "Unreal Engine 5", "WPF"]
+
+- fr: "langages"
+  en: "languages"
+  tags: ["C#", "C++", "Python", "Blueprint"]
+
+- fr: "domaines"
+  en: "areas"
+  tags: ["Gameplay", "IA", "AI", "UI/UX", "VR", "Multiplayer", "Tools", "Outils", "MVVM"]

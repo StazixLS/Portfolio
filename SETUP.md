@@ -396,6 +396,8 @@ jour ce repo-ci, mets à jour la constante `SITE` dans le `404.html` de `StazixL
 
 Le bouton « Filtrer » de la section Projets se construit tout seul à partir des fiches : un type (`project_type`) ou un tag apparaît dans le filtre dès qu'un projet l'utilise, rien à déclarer ailleurs. Les types suivent l'ordre de `_data/project_types.yml`, les tags sont triés par ordre alphabétique. Deux tags écrits différemment (« UE5 » et « Unreal Engine 5 ») donnent deux entrées : garder une seule écriture par techno.
 
+Les tags sont rangés par famille (moteurs, langages, domaines) d'après `_data/tag_families.yml`. Un tag qui n'y figure pas marche quand même : il apparaît dans « Autres ». Pour le classer, ajouter son nom dans la liste d'une famille ; pour créer une famille, ajouter un bloc `fr` / `en` / `tags`. Au-delà de 12 tags, un champ de recherche apparaît dans le panneau, et le panneau défile s'il devient trop haut.
+
 ## Libellé du lien externe
 
 `link_label_fr` / `link_label_en` (facultatifs) remplacent « Voir en ligne » sur la carte et la fiche quand le lien n'est pas un site ou un build, par exemple « Voir le post LinkedIn ».

@@ -900,6 +900,15 @@ html.has-lightbox { overflow: hidden; }
 .filter-chip { border: 1px solid transparent; cursor: pointer; opacity: 0.6; transition: opacity 0.15s, border-color 0.15s; }
 .filter-chip:hover { opacity: 0.85; }
 .filter-chip[aria-pressed="true"] { opacity: 1; border-color: currentColor; }
+.filter-panel { max-height: min(70vh, 520px); overflow-y: auto; }
+.filter-head { position: sticky; top: 0; background: var(--surface); z-index: 1; }
+.filter-search { margin: 14px 0; }
+.filter-search input {
+  width: 100%; padding: 8px 10px;
+  background: var(--bg); border: 1px solid var(--border); border-radius: 6px;
+  color: var(--text); font-family: var(--font-mono); font-size: 13px;
+}
+.filter-search input::placeholder { color: var(--muted); }
 .filter-status { margin: 14px 0 0; font-family: var(--font-mono); font-size: 12px; color: var(--subtle); }
 .filter-empty { margin: 8px 0 0; font-family: var(--font-mono); font-size: 13px; color: var(--subtle); }
 .filter-empty .filter-reset { margin-left: 8px; font-size: 13px; }
