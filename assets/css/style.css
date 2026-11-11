@@ -77,10 +77,8 @@ a { color: inherit; text-decoration: none; }
   background: var(--overlay);
   border-bottom: 1px solid var(--border);
 }
-.titlebar > .dots { flex: 0 0 auto; }
 .titlebar-path { flex: 1 1 auto; }
-.dots { display: flex; gap: 8px; }
-.dot { width: 12px; height: 12px; border-radius: 50%; background: #524f67; display: inline-block; }
+.titlebar .lang-switch { margin-left: auto; }
 .titlebar-path {
   font-family: var(--font-mono);
   font-size: 12.5px;
