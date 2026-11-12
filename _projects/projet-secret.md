@@ -1,5 +1,5 @@
 ---
-start_date: ""
+start_date: "2026-05"
 end_date: ""
 project_type: "student"
 initials: "FGTB"
