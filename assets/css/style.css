@@ -665,6 +665,32 @@ a.tab:hover { color: var(--text); background: rgba(255, 255, 255, 0.02); }
   margin-top: 8px;
 }
 
+/* Media placeholder: stands in for a capture/video that is still to be supplied.
+   Written as raw HTML inside a project description, see SETUP.md. */
+.text-placeholder { margin: 8px 0 20px; padding: 12px 14px; border: 1px dashed var(--border, #403d52); border-radius: 6px; font-family: var(--font-mono, monospace); font-size: 13px; color: var(--code-comment); }
+.text-placeholder::before { content: "// TODO "; }
+.media-placeholders { display: flex; gap: 16px; margin: 24px 0; }
+.media-placeholders .media-placeholder { flex: 1; margin: 0; aspect-ratio: 16 / 9; }
+.media-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 21 / 9;
+  margin: 24px 0;
+  padding: 16px;
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+  background:
+    repeating-linear-gradient(135deg, transparent 0 14px, rgba(224, 222, 244, 0.02) 14px 28px),
+    var(--surface);
+  color: var(--subtle);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.5;
+  text-align: center;
+}
+.media-placeholder::before { content: "// "; white-space: pre; color: var(--code-comment); }
+
 .pane > .project-title { margin-bottom: 28px; }
 
 /* Parcours: a vertical line with one node per step, like a git graph */
@@ -959,6 +985,7 @@ html.has-lightbox { overflow: hidden; }
   .hero-avatar { width: 88px; height: 88px; }
   .project-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .media-compare { flex-direction: column; }
+  .media-placeholders { flex-direction: column; }
   .project-body img.float-right,
   .project-body img.float-left,
   .project-body video.float-right,

@@ -22,11 +22,7 @@ gallery:
   - "/assets/projects/La Poste/Padlock Proto.png"
   - "/assets/projects/La Poste/Proto Padlock Without Dialogue.mp4"
   - "/assets/projects/La Poste/Proto Padlock With Dialog.mp4"
-  - "/assets/projects/La Poste/Module 1 Inspection Part1.mp4"
-  - "/assets/projects/La Poste/Module 1 Inspection Part2.mp4"
-  - "/assets/projects/La Poste/Module 1 Inspection Part3.mp4"
-  - "/assets/projects/La Poste/Module 1 Inspection Part4.mp4"
-  - "/assets/projects/La Poste/Module 1 Inspection Part5.mp4"
+  - "/assets/projects/La Poste/Module 1 Inspection Blockout.mp4"
   - "/assets/projects/La Poste/La Poste Module 1 With Texture.mp4"
   - "/assets/projects/La Poste/Outil Halo Debug Mode (Hors Play).mp4"
   - "/assets/projects/La Poste/Outil Halo Debug Preset (Hors Play).mp4"
@@ -40,7 +36,7 @@ description_fr: >
 
   J'ai travaillé sur les deux modules. En janvier, plutôt en solo, sur le Module 2 (mini-jeu du cadenas, [en vidéo](#gallery-2)) : architecture des Game/MiniGame Managers, physique et interactions du cadenas, particules, son, un système de quiz avec indices, et quelques méthodes d'extension C# réutilisables (TryGetComponent, GetComponentsInChildren...).
 
-  À partir de février, avec un camarade, sur toutes les étapes d'interaction du Module 1 (inspection du transpalette, [le parcours en vidéo](#gallery-4)). J'ai aussi développé un système de mise en surbrillance des objets interactifs ("Halo"). [Voir le prototype](#gallery-10).
+  À partir de février, avec un camarade, sur toutes les étapes d'interaction du Module 1 (inspection du transpalette, [le parcours en vidéo](#gallery-4)). J'ai aussi développé un système de mise en surbrillance des objets interactifs ("Halo"). [Voir le prototype](#gallery-6).
 
   <div class="media-compare">
     <figure>
@@ -53,11 +49,11 @@ description_fr: >
     </figure>
   </div>
 
-  Le même parcours une fois l'environnement texturé, en mouvement : [voir la vidéo](#gallery-9).
+  Le même parcours une fois l'environnement texturé, en mouvement : [voir la vidéo](#gallery-5).
 
   ## Défis techniques
 
-  Le plus gros morceau a été ce système de Halo. Le composant "Halo" natif d'Unity ne convenait pas du tout, et une autre approche testée ne fonctionnait pas correctement une fois en VR. La solution retenue : un matériau dédié, permutable à la volée. Quand le halo s'active sur un objet, son matériau est remplacé par ce matériau spécial. Le système va jusqu'à un outil de config personnalisé dans l'inspecteur Unity, avec prévisualisation directement hors mode Play ([l'outil en action](#gallery-11)) et des presets sauvegardables sur le disque ([aperçu](#gallery-12)).
+  Le plus gros morceau a été ce système de Halo. Le composant "Halo" natif d'Unity ne convenait pas du tout, et une autre approche testée ne fonctionnait pas correctement une fois en VR. La solution retenue : un matériau dédié, permutable à la volée. Quand le halo s'active sur un objet, son matériau est remplacé par ce matériau spécial. Le système va jusqu'à un outil de config personnalisé dans l'inspecteur Unity, avec prévisualisation directement hors mode Play ([l'outil en action](#gallery-7)) et des presets sauvegardables sur le disque ([aperçu](#gallery-8)).
 
   Contrainte de prod à noter : l'équipe disposait de peu de casques VR, ce qui a rendu le test de nos mécaniques plus long que prévu. Le compteur de FPS resté affiché en permanence pendant le développement ([aperçu](#gallery-3)) servait à repérer les chutes de performance : en VR, un framerate trop bas peut vite donner la nausée en jeu, donc c'était un point de vigilance constant.
 
@@ -73,7 +69,7 @@ description_en: >
 
   I worked on both modules. In January, mostly solo, on Module 2 (the padlock mini-game, [video](#gallery-2)): Game/MiniGame Manager architecture, padlock physics and interactions, particles, sound, a quiz system with hints, and a few reusable C# extension methods (TryGetComponent, GetComponentsInChildren...).
 
-  From February onward, alongside a teammate, on all the interaction steps of Module 1 (pallet jack inspection, [walkthrough video](#gallery-4)). I also built a highlight system for interactive objects ("Halo"). [See the prototype](#gallery-10).
+  From February onward, alongside a teammate, on all the interaction steps of Module 1 (pallet jack inspection, [walkthrough video](#gallery-4)). I also built a highlight system for interactive objects ("Halo"). [See the prototype](#gallery-6).
 
   <div class="media-compare">
     <figure>
@@ -86,11 +82,11 @@ description_en: >
     </figure>
   </div>
 
-  The same walkthrough once the environment was textured, in motion: [watch the video](#gallery-9).
+  The same walkthrough once the environment was textured, in motion: [watch the video](#gallery-5).
 
   ## Technical challenges
 
-  The biggest piece was this Halo system. Unity's native Halo component didn't work at all, and another approach I tried didn't behave correctly once in VR. The solution: a dedicated material, swapped on the fly. When the halo activates on an object, its material gets replaced with this special one. The system even includes a custom config tool in the Unity inspector, with a preview outside Play mode ([the tool in action](#gallery-11)) and presets that can be saved to disk ([preview](#gallery-12)).
+  The biggest piece was this Halo system. Unity's native Halo component didn't work at all, and another approach I tried didn't behave correctly once in VR. The solution: a dedicated material, swapped on the fly. When the halo activates on an object, its material gets replaced with this special one. The system even includes a custom config tool in the Unity inspector, with a preview outside Play mode ([the tool in action](#gallery-7)) and presets that can be saved to disk ([preview](#gallery-8)).
 
   Worth noting as a production constraint: the team had very few VR headsets, which made testing our mechanics take longer than expected. The FPS counter left on screen throughout development ([preview](#gallery-3)) was there to catch performance drops early: in VR, a framerate that's too low can quickly cause motion sickness, so it was something we kept a constant eye on.
 

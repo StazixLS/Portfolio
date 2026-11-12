@@ -17,3 +17,12 @@
   description_fr: "Mon école. C'est là que j'ai travaillé sur Nelli the Seer, un projet étudiant sorti sur Steam, et sur le projet client La Poste avec 24 étudiants."
   description_en: "My school. It's where I worked on Nelli the Seer, a student project released on Steam, and on the La Poste client project with 24 students."
   projects: ["nelli-the-seer", "la-poste"]
+
+- title: "Lycée Joliot-Curie"
+  kind_fr: "Baccalauréat"
+  kind_en: "High school diploma"
+  place: "Sète"
+  period_fr: ""
+  period_en: ""
+  description_fr: "Bac général avec mention, spécialités mathématiques et NSI (numérique et sciences informatiques)."
+  description_en: "French general baccalauréat with honours, majoring in mathematics and computer science (NSI)."

@@ -82,8 +82,8 @@ title: Accueil
           <span lang="en" hidden>who I am</span>
         </h3>
         <p class="profile-text">
-          <span lang="fr">Je m'appelle Sev. Ce qui m'a attiré vers le développement de jeux vidéo, c'est cette idée qu'une poignée de lignes de code peut devenir une expérience que quelqu'un d'autre va ressentir, manette en main. Je suis plutôt branché gameplay et outils : concevoir des systèmes qui tiennent la route, et construire ce qui permet à toute une équipe d'avancer plus vite.</span>
-          <span lang="en" hidden>My name is Sev. What drew me to game development is the idea that a handful of lines of code can become an experience someone else actually feels, controller in hand. I lean toward gameplay and tools: designing systems that hold up, and building the things that let a whole team move faster.</span>
+          <span lang="fr">Je m'appelle Sev. Ce qui m'a attiré vers le développement de jeux vidéo, c'est cette idée qu'une poignée de lignes de code peut devenir une expérience que quelqu'un d'autre va ressentir, manette en main. Je suis plutôt branché gameplay et outils : concevoir des systèmes qui tiennent la route, et construire ce qui permet à toute une équipe d'avancer plus vite. En dehors du code : Rocket League, Minecraft et le volley.</span>
+          <span lang="en" hidden>My name is Sev. What drew me to game development is the idea that a handful of lines of code can become an experience someone else actually feels, controller in hand. I lean toward gameplay and tools: designing systems that hold up, and building the things that let a whole team move faster. Away from code: Rocket League, Minecraft and volleyball.</span>
         </p>
       </div>
 
@@ -115,8 +115,8 @@ title: Accueil
           <span lang="en" hidden>what I'd like to do</span>
         </h3>
         <p class="profile-text">
-          <span lang="fr">Je veux travailler comme programmeur gameplay / outils dans un studio. Un sujet que j'ai envie de creuser : l'IA dans les outils de production.</span>
-          <span lang="en" hidden>I want to work as a gameplay/tools programmer in a studio. One thing I want to dig into: AI in production tooling.</span>
+          <span lang="fr">Je veux travailler comme programmeur gameplay / outils dans un studio. Je cherche un stage ou un emploi, disponible dès maintenant, à Montpellier et dans les environs. Un sujet que j'ai envie de creuser : l'IA dans les outils de production.</span>
+          <span lang="en" hidden>I want to work as a gameplay/tools programmer in a studio. I'm looking for an internship or a job, available now, in or around Montpellier. One thing I want to dig into: AI in production tooling.</span>
         </p>
       </div>
     </div>
@@ -147,6 +147,34 @@ title: Accueil
           <dd>
             <span lang="fr">IA dans les outils de production</span>
             <span lang="en" hidden>AI in production tooling</span>
+          </dd>
+        </div>
+        <div class="prop">
+          <dt><span lang="fr">Loisirs</span><span lang="en" hidden>Hobbies</span></dt>
+          <dd>
+            <span lang="fr">Rocket League, Minecraft, volley-ball</span>
+            <span lang="en" hidden>Rocket League, Minecraft, volleyball</span>
+          </dd>
+        </div>
+        <div class="prop">
+          <dt><span lang="fr">Langues</span><span lang="en" hidden>Spoken languages</span></dt>
+          <dd>
+            <span lang="fr">Français, anglais (notions)</span>
+            <span lang="en" hidden>French, English (basic)</span>
+          </dd>
+        </div>
+        <div class="prop">
+          <dt><span lang="fr">Recherche</span><span lang="en" hidden>Looking for</span></dt>
+          <dd>
+            <span lang="fr">Stage ou emploi, dès maintenant</span>
+            <span lang="en" hidden>Internship or job, available now</span>
+          </dd>
+        </div>
+        <div class="prop">
+          <dt><span lang="fr">Lieu</span><span lang="en" hidden>Location</span></dt>
+          <dd>
+            <span lang="fr">Montpellier et environs · véhiculé</span>
+            <span lang="en" hidden>Montpellier area · has a car</span>
           </dd>
         </div>
         <div class="prop">
