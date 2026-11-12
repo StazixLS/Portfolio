@@ -1,3 +1,4 @@
+# Ordre = ordre d'affichage des projets sur l'accueil (du plus important au moins important).
 pro:
   fr: "Projet professionnel"
   en: "Professional project"
@@ -6,14 +7,14 @@ student:
   fr: "Projet étudiant"
   en: "Student project"
   color: foam
-personal:
-  fr: "Projet personnel"
-  en: "Personal project"
-  color: gold
 gamejam:
   fr: "Game Jam"
   en: "Game Jam"
   color: iris
+personal:
+  fr: "Projet personnel"
+  en: "Personal project"
+  color: gold
 course:
   fr: "Projet de cours"
   en: "Course project"

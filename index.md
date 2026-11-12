@@ -51,13 +51,14 @@ title: Accueil
   </div>
 
   <div class="grid" data-filter-grid>
+    {% comment %} Par type (ordre de _data/project_types.yml), puis du plus récent au plus ancien ; les projets verrouillés à la fin. {% endcomment %}
     {% assign sorted_projects = site.projects | sort: "start_date" | reverse %}
-    {% for project in sorted_projects %}{% unless project.locked %}
+    {% for type in site.data.project_types %}{% for project in sorted_projects %}{% if project.project_type == type[0] %}{% unless project.locked %}
     {% include project-card.html project=project %}
-    {% endunless %}{% endfor %}
-    {% for project in sorted_projects %}{% if project.locked %}
+    {% endunless %}{% endif %}{% endfor %}{% endfor %}
+    {% for type in site.data.project_types %}{% for project in sorted_projects %}{% if project.project_type == type[0] %}{% if project.locked %}
     {% include project-card.html project=project %}
-    {% endif %}{% endfor %}
+    {% endif %}{% endif %}{% endfor %}{% endfor %}
   </div>
   <p class="filter-empty" data-filter-empty hidden>
     <span lang="fr">Aucun projet ne correspond à ce filtre.</span>
